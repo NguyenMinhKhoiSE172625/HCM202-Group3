@@ -64,72 +64,57 @@ const AIHistoricalAssistant = () => {
     setIsTyping(true)
 
     try {
-      // Simple direct OpenAI call (mais secure with thread persistence)
-      const { OpenAI } = await import('openai')
+      // Import Google Generative AI
+      const { GoogleGenerativeAI } = await import('@google/generative-ai')
 
-      const openai = new OpenAI({
-        apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-        dangerouslyAllowBrowser: true
+      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" })
+
+      // Get conversation history from localStorage
+      const conversationHistory = JSON.parse(localStorage.getItem('ai-chat-history') || '[]')
+
+      // System prompt for Vietnam History 1954-1964
+      const systemPrompt = `Bạn là một chuyên gia lịch sử Việt Nam chuyên về giai đoạn 1954-1964. Bạn có kiến thức sâu rộng về:
+
+- Hiệp định Geneva 1954 và việc chia cắt đất nước
+- Chính sách Tố Cộng của Ngô Đình Diệm
+- Sự hình thành và phát triển của Mặt trận Giải phóng miền Nam
+- Các sự kiện chính trị, xã hội quan trọng trong thời kỳ này
+- Bối cảnh quốc tế và ảnh hưởng của Chiến tranh Lạnh
+
+Hãy trả lời bằng tiếng Việt, chính xác về mặt lịch sử, và giải thích một cách dễ hiểu. Luôn cung cấp ngữ cảnh lịch sử và tránh thiên vị chính trị.`
+
+      // Build conversation context
+      let conversationContext = systemPrompt + "\n\nLịch sử cuộc trò chuyện:\n"
+      conversationHistory.forEach((msg: any) => {
+        conversationContext += `${msg.role === 'user' ? 'Người dùng' : 'AI'}: ${msg.content}\n`
       })
+      conversationContext += `Người dùng: ${message}\nAI:`
 
-      // Get or create thread
-      let threadId = localStorage.getItem('ai-chat-thread-id')
-      if (!threadId) {
-        const thread = await openai.beta.threads.create()
-        threadId = thread.id
-        localStorage.setItem('ai-chat-thread-id', threadId)
+      // Generate response
+      const result = await model.generateContent(conversationContext)
+      const response = await result.response
+      const reply = response.text()
+
+      // Update conversation history
+      const updatedHistory = [
+        ...conversationHistory,
+        { role: 'user', content: message },
+        { role: 'assistant', content: reply }
+      ]
+
+      // Keep only last 10 exchanges to prevent context from getting too long
+      if (updatedHistory.length > 20) {
+        updatedHistory.splice(0, updatedHistory.length - 20)
       }
 
-      // Add user message to thread
-      await openai.beta.threads.messages.create(threadId, {
-        role: 'user',
-        content: message
-      })
+      localStorage.setItem('ai-chat-history', JSON.stringify(updatedHistory))
 
-      // Run the assistant
-      const run = await openai.beta.threads.runs.create(threadId, {
-        assistant_id: import.meta.env.VITE_OPENAI_ASSISTANT_ID ? import.meta.env.VITE_OPENAI_ASSISTANT_ID : "asst_9k2hKdNsL0wyUGlYTHOe18Q5"
-      })
-
-      // Wait for completion
-      let runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id)
-      let attempts = 0
-      const maxAttempts = 30
-
-      while ((runStatus.status === 'queued' || runStatus.status === 'in_progress') && attempts < maxAttempts) {
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id)
-        attempts++
-      }
-
-      if (runStatus.status === 'completed') {
-        // Get the assistant's response
-        const messages = await openai.beta.threads.messages.list(threadId)
-        const assistantMessage = messages.data.find(
-          message => message.role === 'assistant'
-        )
-
-        if (assistantMessage && assistantMessage.content[0]) {
-          const content = assistantMessage.content[0]
-          if (content.type === 'text') {
-            const reply = content.text.value
-            setIsTyping(false)
-            return reply
-          }
-        }
-
-        setIsTyping(false)
-        return "Xin lỗi, tôi không nhận được phản hồi từ hệ thống. Bạn có thể thử lại được không?"
-      } else if (attempts >= maxAttempts) {
-        setIsTyping(false)
-        return "Xin lỗi, hệ thống đang quá tải. Vui lòng thử lại sau ít phút."
-      } else {
-        setIsTyping(false)
-        return `Lỗi hệ thống: ${runStatus.status}. Vui lòng thử lại.`
-      }
+      setIsTyping(false)
+      return reply
 
     } catch (error) {
-      console.error('Error calling OpenAI API:', error)
+      console.error('Error calling Gemini API:', error)
       setIsTyping(false)
 
       // Fallback response
