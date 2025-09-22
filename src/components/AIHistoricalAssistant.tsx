@@ -64,10 +64,17 @@ const AIHistoricalAssistant = () => {
     setIsTyping(true)
 
     try {
+      // Check if API key is available
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY
+      if (!apiKey) {
+        setIsTyping(false)
+        return "Xin lỗi, API key chưa được cấu hình. Vui lòng liên hệ quản trị viên để kích hoạt tính năng AI."
+      }
+
       // Import Google Generative AI
       const { GoogleGenerativeAI } = await import('@google/generative-ai')
 
-      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
+      const genAI = new GoogleGenerativeAI(apiKey)
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
 
       // Get conversation history from localStorage
@@ -130,6 +137,15 @@ NGUYÊN TẮC TRẢ LỜI:
     } catch (error) {
       console.error('Error calling Gemini API:', error)
       setIsTyping(false)
+
+      // Check for specific API errors
+      if (error.message?.includes('API key not valid')) {
+        return "Xin lỗi, API key không hợp lệ. Vui lòng kiểm tra cấu hình API key trong environment variables."
+      }
+
+      if (error.message?.includes('quota')) {
+        return "Xin lỗi, đã vượt quá giới hạn sử dụng API. Vui lòng thử lại sau."
+      }
 
       // Fallback response
       return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về lịch sử Việt Nam 1954-1964. Bạn có thể thử hỏi lại sau ít phút được không?"
