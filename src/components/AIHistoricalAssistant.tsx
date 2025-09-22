@@ -139,11 +139,13 @@ NGUYÊN TẮC TRẢ LỜI:
       setIsTyping(false)
 
       // Check for specific API errors
-      if (error.message?.includes('API key not valid')) {
+      const errorMessage = error instanceof Error ? error.message : String(error)
+
+      if (errorMessage.includes('API key not valid')) {
         return "Xin lỗi, API key không hợp lệ. Vui lòng kiểm tra cấu hình API key trong environment variables."
       }
 
-      if (error.message?.includes('quota')) {
+      if (errorMessage.includes('quota')) {
         return "Xin lỗi, đã vượt quá giới hạn sử dụng API. Vui lòng thử lại sau."
       }
 
