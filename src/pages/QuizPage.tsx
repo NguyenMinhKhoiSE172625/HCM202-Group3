@@ -78,7 +78,7 @@ const QuizPage = () => {
     setSelectedAnswer(answerIndex)
   }
 
-  const handleNextQuestion = () => {
+  const handleSubmitAnswer = () => {
     if (selectedAnswer === null) return
 
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer
@@ -91,16 +91,16 @@ const QuizPage = () => {
 
     setQuizResults(prev => [...prev, result])
     setShowResult(true)
+  }
 
-    setTimeout(() => {
-      if (currentQuestionIndex + 1 < totalQuestions) {
-        setCurrentQuestionIndex(prev => prev + 1)
-        setSelectedAnswer(null)
-        setShowResult(false)
-      } else {
-        setQuizCompleted(true)
-      }
-    }, 2000)
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex + 1 < totalQuestions) {
+      setCurrentQuestionIndex(prev => prev + 1)
+      setSelectedAnswer(null)
+      setShowResult(false)
+    } else {
+      setQuizCompleted(true)
+    }
   }
 
   const handlePreviousQuestion = () => {
@@ -115,6 +115,23 @@ const QuizPage = () => {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
+  }
+
+  // Safety check for currentQuestion
+  if (!currentQuestion && quizStarted && !quizCompleted) {
+    return (
+      <div className="min-h-screen pt-16 bg-gradient-to-br from-red-50 via-white to-red-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Lỗi: Không tìm thấy câu hỏi</h1>
+          <button
+            onClick={resetQuiz}
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            Quay lại
+          </button>
+        </div>
+      </div>
+    )
   }
 
   const calculateScore = () => {
@@ -541,14 +558,24 @@ const QuizPage = () => {
             Câu trước
           </button>
 
-          <button
-            onClick={handleNextQuestion}
-            disabled={selectedAnswer === null}
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-          >
-            {currentQuestionIndex + 1 === totalQuestions ? 'Hoàn thành' : 'Câu tiếp theo'}
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </button>
+          {!showResult ? (
+            <button
+              onClick={handleSubmitAnswer}
+              disabled={selectedAnswer === null}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            >
+              <CheckCircle className="w-4 h-4 mr-2" />
+              Xác nhận đáp án
+            </button>
+          ) : (
+            <button
+              onClick={handleNextQuestion}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+            >
+              {currentQuestionIndex + 1 === totalQuestions ? 'Hoàn thành' : 'Câu tiếp theo'}
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </button>
+          )}
         </div>
       </div>
     </div>
