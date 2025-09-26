@@ -118,7 +118,7 @@ const HomePage = () => {
               className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={itemVariants}
             >
-              <span className="text-gradient">TƯ TƯỞNG HỒ CHÍ MINH</span>
+              <span className="text-gradient-solid">TƯ TƯỞNG HỒ CHÍ MINH</span>
               <br />
               <motion.span
                 className="text-3xl md:text-4xl text-gray-700"

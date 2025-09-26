@@ -33,7 +33,8 @@ export default {
         }
       },
       fontFamily: {
-        'vietnamese': ['Inter', 'system-ui', 'sans-serif'],
+        'vietnamese': ['Nunito', 'Open Sans', 'system-ui', 'sans-serif'],
+        'sans': ['Nunito', 'Open Sans', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',

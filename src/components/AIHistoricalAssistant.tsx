@@ -37,84 +37,94 @@ const AIHistoricalAssistant = () => {
 
   const aiPersona: Persona = {
     id: 'ai-assistant',
-    name: 'AI Lịch sử Việt Nam 1954-1964',
-    title: 'Trợ lý AI chuyên về lịch sử Việt Nam 1954-1964',
+    name: 'AI Tư tưởng Hồ Chí Minh',
+    title: 'Trợ lý AI chuyên về tư tưởng Hồ Chí Minh',
     avatar: '/images/img2.svg',
-    description: 'AI được huấn luyện chuyên sâu về giai đoạn lịch sử Việt Nam 1954-1964',
+    description: 'AI được huấn luyện chuyên sâu về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Hồ Chí Minh',
     color: 'from-blue-500 to-purple-600',
     personality: 'intelligent'
   }
 
   const suggestedQuestions = [
-    "Hiệp định Geneva 1954 có ý nghĩa gì với lịch sử Việt Nam?",
-    "Tại sao Ngô Đình Diệm từ chối tổ chức tổng tuyển cử 1956?",
-    "Chiến dịch Tố Cộng (1955-1959) diễn ra như thế nào?",
-    "Mặt trận Dân tộc Giải phóng miền Nam được thành lập khi nào?",
-    "Mỹ bắt đầu can thiệp vào Việt Nam từ khi nào?",
-    "Chính quyền Ngô Đình Diệm kết thúc ra sao?",
-    "Tình hình miền Bắc giai đoạn 1954-1964 như thế nào?",
-    "Ý nghĩa lịch sử của giai đoạn 1954-1964?"
+    "Tư tưởng độc lập dân tộc của Hồ Chí Minh có đặc điểm gì?",
+    "Chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh như thế nào?",
+    "Hai tư tưởng này kết hợp với nhau ra sao?",
+    "Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh?",
+    "Tuyên ngôn độc lập 1945 thể hiện tư tưởng gì?",
+    "Tư tưởng Hồ Chí Minh có ảnh hưởng gì đến hiện tại?",
+    "Đặc điểm sáng tạo trong tư tưởng Hồ Chí Minh?",
+    "Giá trị thời đại của tư tưởng Hồ Chí Minh?"
   ]
 
   const initialMessage = useMemo(() =>
-    "Xin chào! Tôi là AI Lịch sử Việt Nam 1954-1964, được huấn luyện chuyên sâu về giai đoạn quan trọng này trong lịch sử dân tộc. Tôi có thể giúp bạn tìm hiểu về Hiệp định Geneva, chính quyền Ngô Đình Diệm, Chiến dịch Tố Cộng, sự can thiệp của Mỹ và nhiều sự kiện lịch sử khác. Bạn muốn tìm hiểu về vấn đề gì?"
+    "Xin chào! Tôi là AI Tư tưởng Hồ Chí Minh, được huấn luyện chuyên sâu về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh. Tôi có thể giúp bạn tìm hiểu về quá trình hình thành, đặc điểm, sự kết hợp hài hòa giữa hai tư tưởng này và ý nghĩa lịch sử của chúng. Bạn muốn tìm hiểu về vấn đề gì?"
   , [])
 
   const getOfflineResponse = (message: string): string | null => {
     const lowerMessage = message.toLowerCase()
 
     const responses: { [key: string]: string } = {
-      "hiệp định geneva": `Hiệp định Geneva 1954:
+      "tư tưởng độc lập dân tộc": `Tư tưởng độc lập dân tộc của Hồ Chí Minh:
 
-📅 **Thời gian**: Ký ngày 21/7/1954 tại Geneva, Thụy Sĩ
+🏛️ **Bản chất**: Giải phóng dân tộc khỏi ách thống trị của thực dân, đế quốc
 
-🏁 **Ý nghĩa**: Kết thúc chiến tranh Đông Dương lần thứ nhất
+🌟 **Đặc điểm**:
+• Độc lập chính trị hoàn toàn
+• Tự chủ kinh tế
+• Bảo vệ chủ quyền lãnh thổ
+• Bình đẳng dân tộc
 
-🗺️ **Chia cắt**: Tạm chia Việt Nam tại vĩ tuyến 17
+🎯 **Mục tiêu**: Xây dựng nước Việt Nam độc lập, tự do, hạnh phúc
 
-🗳️ **Tổng tuyển cử**: Quy định tổ chức tổng tuyển cử thống nhất trong 2 năm (1956)
+📜 **Thể hiện**: Tuyên ngôn độc lập 2/9/1945`,
 
-🇫🇷 **Pháp rút quân**: Pháp chính thức rút quân khỏi Việt Nam`,
+      "chủ nghĩa xã hội": `Tư tưởng chủ nghĩa xã hội của Hồ Chí Minh:
 
-      "ngô đình diệm": `Ngô Đình Diệm và chính quyền Sài Gòn (1954-1963):
+⚖️ **Công bằng xã hội**: Xóa bỏ bóc lột, áp bức
 
-👑 **Lên nắm quyền**: Năm 1954 với sự ủng hộ của Mỹ
+👥 **Dân chủ nhân dân**: Quyền làm chủ của nhân dân lao động
 
-❌ **Từ chối tổng tuyển cử**: Không tổ chức tổng tuyển cử năm 1956
+🏭 **Kinh tế**: Phát triển kinh tế vì con người
 
-🔨 **Đàn áp**: Thực hiện "Chiến dịch Tố Cộng" và đàn áp tôn giáo
+🎓 **Văn hóa**: Xây dựng nền văn hóa dân tộc, khoa học, đại chúng
 
-💀 **Kết thúc**: Bị đảo chính và giết chết ngày 2/11/1963`,
+🌱 **Đặc sắc**: Phù hợp với điều kiện Việt Nam`,
 
-      "chiến dịch tố cộng": `Chiến dịch Tố Cộng (1955-1959):
+      "kết hợp": `Sự kết hợp tư tưởng độc lập dân tộc và chủ nghĩa xã hội:
 
-⚔️ **Bản chất**: Chiến dịch đàn áp của chính quyền Diệm
+🤝 **Hài hòa**: Hai tư tưởng bổ trợ, thống nhất với nhau
 
-⚖️ **Luật 10/59**: Cho phép tử hình không cần xét xử
+🎯 **Mục tiêu chung**: Giải phóng dân tộc và giải phóng xã hội
 
-📊 **Số liệu**: Hơn 100,000 người bị bắt, 25,000 người bị giết
+⚡ **Sáng tạo**: Vận dụng Mác-Lênin vào điều kiện Việt Nam
 
-🎯 **Mục tiêu**: Tiêu diệt cán bộ cách mạng và người yêu nước`,
+🏗️ **Thực tiễn**: Từ đấu tranh giải phóng đến xây dựng đất nước
 
-      "mặt trận giải phóng": `Mặt trận Dân tộc Giải phóng miền Nam:
+🌟 **Ý nghĩa**: Tạo nên con đường cách mạng độc đáo của Việt Nam`,
 
-📅 **Thành lập**: Ngày 20/12/1960
+      "ý nghĩa": `Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh:
 
-⚡ **Nguyên nhân**: Phản ứng trước sự đàn áp của chế độ Mỹ-Diệm
+🇻🇳 **Đối với Việt Nam**: Dẫn dắt cách mạng thành công, xây dựng đất nước
 
-🎯 **Mục tiêu**: Độc lập, dân chủ, hòa bình, trung lập
+🌍 **Đối với thế giới**: Góp phần vào phong trào giải phóng dân tộc
 
-👥 **Ủng hộ**: Được nhân dân miền Nam ủng hộ rộng rãi`,
+📚 **Giá trị lý luận**: Phát triển sáng tạo chủ nghĩa Mác-Lênin
 
-      "can thiệp mỹ": `Sự can thiệp của Mỹ:
+⏰ **Tính thời đại**: Vẫn có giá trị định hướng hiện tại
 
-🇺🇸 **Bắt đầu**: Can thiệp từ 1954 thay thế Pháp
+🎓 **Di sản**: Tài sản tinh thần quý báu của dân tộc`,
 
-📈 **Tăng cường**: Từ thời Tổng thống Kennedy (1961)
+      "tuyên ngôn độc lập": `Tuyên ngôn độc lập 2/9/1945:
 
-👨‍💼 **Số quân**: Tăng từ 3,200 (1961) lên 23,300 (1964)
+📜 **Ý nghĩa**: Thể hiện rõ nét tư tưởng độc lập dân tộc
 
-🎯 **Mục tiêu**: Ngăn chặn "chủ nghĩa cộng sản" lan rộng`
+🏛️ **Nội dung**: Tuyên bố độc lập, thành lập nước Việt Nam Dân chủ Cộng hòa
+
+⚖️ **Nguyên tắc**: Dựa trên quyền bình đẳng của các dân tộc
+
+🌟 **Đặc sắc**: Kết hợp truyền thống dân tộc với tinh thần thời đại
+
+🎯 **Tầm nhìn**: Hướng tới xã hội dân chủ, văn minh`
     }
 
     for (const [keyword, response] of Object.entries(responses)) {
@@ -125,7 +135,7 @@ const AIHistoricalAssistant = () => {
 
     // Check for common greetings
     if (lowerMessage.includes('xin chào') || lowerMessage.includes('hello') || lowerMessage.includes('chào')) {
-      return "Xin chào! Tôi có thể giúp bạn tìm hiểu về lịch sử Việt Nam 1954-1964. Bạn muốn hỏi về: Hiệp định Geneva, Ngô Đình Diệm, Chiến dịch Tố Cộng, Mặt trận Giải phóng, hay sự can thiệp của Mỹ?"
+      return "Xin chào! Tôi có thể giúp bạn tìm hiểu về tư tưởng Hồ Chí Minh. Bạn muốn hỏi về: Tư tưởng độc lập dân tộc, Chủ nghĩa xã hội, Sự kết hợp hai tư tưởng, Ý nghĩa lịch sử, hay Tuyên ngôn độc lập?"
     }
 
     return null
@@ -162,57 +172,50 @@ const AIHistoricalAssistant = () => {
       // Get conversation history from localStorage
       const conversationHistory = JSON.parse(localStorage.getItem('ai-chat-history') || '[]')
 
-      // System prompt for Vietnam History 1954-1964
-      const systemPrompt = `Bạn là một AI chuyên gia về lịch sử Việt Nam giai đoạn 1954-1964. Bạn được huấn luyện chuyên sâu để cung cấp thông tin chính xác, khách quan về thời kỳ quan trọng này trong lịch sử dân tộc.
+      // System prompt for Ho Chi Minh Thought
+      const systemPrompt = `Bạn là một AI chuyên gia về tư tưởng Hồ Chí Minh. Bạn được huấn luyện chuyên sâu để cung cấp thông tin chính xác, khách quan về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh.
 
 KIẾN THỨC CỐT LÕI:
 
-HIỆP ĐỊNH GENEVA 1954:
-- Ký ngày 21/7/1954 tại Geneva, Thụy Sĩ
-- Kết thúc chiến tranh Đông Dương lần thứ nhất
-- Tạm chia Việt Nam tại vĩ tuyến 17
-- Quy định tổ chức tổng tuyển cử thống nhất trong 2 năm (1956)
-- Pháp rút quân khỏi Việt Nam
+TƯ TƯỞNG ĐỘC LẬP DÂN TỘC:
+- Bản chất: Giải phóng dân tộc khỏi ách thống trị của thực dân, đế quốc
+- Đặc điểm: Độc lập chính trị hoàn toàn, tự chủ kinh tế, bảo vệ chủ quyền lãnh thổ
+- Mục tiêu: Xây dựng nước Việt Nam độc lập, tự do, hạnh phúc
+- Thể hiện: Tuyên ngôn độc lập 2/9/1945, các tác phẩm của Hồ Chí Minh
 
-NGÔ ĐÌNH DIỆM VÀ CHÍNH QUYỀN SÀI GÒN (1954-1963):
-- Lên nắm quyền năm 1954 với sự ủng hộ của Mỹ
-- Từ chối tổ chức tổng tuyển cử năm 1956
-- Thực hiện "Cải cách Ruộng đất" và "Chiến dịch Tố Cộng"
-- Đàn áp tôn giáo và người dân
-- Bị đảo chính và giết chết ngày 2/11/1963
+TƯ TƯỞNG CHỦ NGHĨA XÃ HỘI:
+- Công bằng xã hội: Xóa bỏ bóc lột, áp bức
+- Dân chủ nhân dân: Quyền làm chủ của nhân dân lao động
+- Kinh tế: Phát triển kinh tế vì con người
+- Văn hóa: Xây dựng nền văn hóa dân tộc, khoa học, đại chúng
+- Đặc sắc: Phù hợp với điều kiện cụ thể của Việt Nam
 
-CHIẾN DỊCH TỐ CỘNG (1955-1959):
-- Chiến dịch đàn áp của chính quyền Diệm
-- Luật 10/59: Cho phép tử hình không cần xét xử
-- Hơn 100,000 người bị bắt, 25,000 người bị giết
-- Mục tiêu: Tiêu diệt cán bộ cách mạng và người yêu nước
+SỰ KẾT HỢP HAI TƯ TƯỞNG:
+- Hài hòa: Hai tư tưởng bổ trợ, thống nhất với nhau
+- Mục tiêu chung: Giải phóng dân tộc và giải phóng xã hội
+- Sáng tạo: Vận dụng Mác-Lênin vào điều kiện Việt Nam
+- Thực tiễn: Từ đấu tranh giải phóng đến xây dựng đất nước
 
-MẶT TRẬN DÂN TỘC GIẢI PHÓNG MIỀN NAM (1960):
-- Thành lập ngày 20/12/1960
-- Phản ứng trước sự đàn áp của chế độ Mỹ-Diệm
-- Mục tiêu: Độc lập, dân chủ, hòa bình, trung lập
-- Được nhân dân miền Nam ủng hộ
-
-CAN THIỆP CỦA MỸ:
-- Bắt đầu can thiệp từ 1954 thay thế Pháp
-- Tăng cường từ thời Tổng thống Kennedy (1961)
-- Số quân tăng từ 3,200 (1961) lên 23,300 (1964)
-- Mục tiêu: Ngăn chặn "chủ nghĩa cộng sản" lan rộng
+Ý NGHĨA LỊCH SỬ:
+- Đối với Việt Nam: Dẫn dắt cách mạng thành công, xây dựng đất nước
+- Đối với thế giới: Góp phần vào phong trào giải phóng dân tộc
+- Giá trị lý luận: Phát triển sáng tạo chủ nghĩa Mác-Lênin
+- Tính thời đại: Vẫn có giá trị định hướng hiện tại
 
 NGUYÊN TẮC TRẢ LỜI:
 1. Sử dụng tiếng Việt chuẩn, dễ hiểu
-2. Cung cấp thông tin chính xác dựa trên sự kiện lịch sử
-3. Trích dẫn năm tháng, số liệu cụ thể khi có thể
+2. Cung cấp thông tin chính xác dựa trên tư tưởng Hồ Chí Minh
+3. Trích dẫn các tác phẩm, phát biểu của Hồ Chí Minh khi có thể
 4. Giải thích bối cảnh lịch sử để người đọc hiểu rõ hơn
-5. Cân bằng các quan điểm khác nhau khi phù hợp
+5. Phân tích sự kết hợp hài hòa giữa hai tư tưởng
 6. Khuyến khích tư duy phản biện và học hỏi
 7. Độ dài phù hợp (100-400 từ tùy theo độ phức tạp của câu hỏi)
 8. Sử dụng giọng điệu thân thiện, dễ tiếp cận
 
 ĐIỀU CẤM:
-- Không bịa đặt sự kiện lịch sử
+- Không bịa đặt tư tưởng hoặc phát biểu của Hồ Chí Minh
 - Không sử dụng ngôn ngữ phản cảm hoặc kích động
-- Không trả lời câu hỏi ngoài phạm vi 1954-1964
+- Không trả lời câu hỏi ngoài phạm vi tư tưởng Hồ Chí Minh
 - Không thể hiện quan điểm chính trị hiện tại
 - Không thiên vị quá mức theo một quan điểm duy nhất`
 
