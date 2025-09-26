@@ -20,11 +20,11 @@ const SearchEngine = () => {
   const [showAiSuggestions, setShowAiSuggestions] = useState(false)
 
   const aiSuggestions = [
-    "Chiến dịch Tố Cộng và ảnh hưởng của nó",
-    "Vai trò của Mỹ trong giai đoạn 1954-1964",
-    "Hiệp định Geneva và việc thực hiện",
-    "Sự hình thành Mặt trận Dân tộc Giải phóng",
-    "So sánh hai quan điểm nội chiến vs giải phóng dân tộc"
+    "Tư tưởng độc lập dân tộc của Hồ Chí Minh",
+    "Chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh",
+    "Sự kết hợp hai tư tưởng cốt lõi",
+    "Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh",
+    "Tuyên ngôn độc lập và tư tưởng dân tộc"
   ]
 
   const searchResults = useMemo(() => {

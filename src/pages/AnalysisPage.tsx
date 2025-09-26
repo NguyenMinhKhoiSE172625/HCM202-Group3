@@ -18,35 +18,35 @@ import { analysisData } from '../data/analysisData'
 
 const AnalysisPage = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
-  const [selectedViewpoint, setSelectedViewpoint] = useState<'civil-war' | 'liberation' | 'comparison'>('comparison')
+  const [selectedViewpoint, setSelectedViewpoint] = useState<'independence' | 'socialism' | 'comparison'>('comparison')
 
   const viewpoints = [
-    { id: 'civil-war', label: 'Quan điểm "Nội chiến"', color: 'from-red-500 to-red-600', icon: XCircle },
-    { id: 'liberation', label: 'Quan điểm "Giải phóng dân tộc"', color: 'from-green-500 to-green-600', icon: CheckCircle },
-    { id: 'comparison', label: 'So sánh toàn diện', color: 'from-blue-500 to-blue-600', icon: Scale }
+    { id: 'independence', label: 'Tư tưởng độc lập dân tộc', color: 'from-red-500 to-red-600', icon: XCircle },
+    { id: 'socialism', label: 'Tư tưởng chủ nghĩa xã hội', color: 'from-green-500 to-green-600', icon: CheckCircle },
+    { id: 'comparison', label: 'Phân tích toàn diện', color: 'from-blue-500 to-blue-600', icon: Scale }
   ]
 
   const getAnalysisIcon = (category: string) => {
-    if (category.includes('pháp lý')) return Gavel
-    if (category.includes('chính trị')) return Users
-    if (category.includes('quân sự')) return Shield
-    if (category.includes('xã hội')) return TrendingUp
+    if (category.includes('độc lập')) return Gavel
+    if (category.includes('xã hội')) return Users
+    if (category.includes('kết hợp')) return Shield
+    if (category.includes('thực tiễn')) return TrendingUp
     return BarChart3
   }
 
-  const civilWarData = analysisData.filter(item => item.id === 'civil-war-viewpoint')
-  const liberationData = analysisData.filter(item => item.id === 'liberation-viewpoint')
+  const independenceData = analysisData.filter(item => item.id === 'national-independence-thought')
+  const socialismData = analysisData.filter(item => item.id === 'socialist-thought')
   // Additional analysis data for future expansion
   // const otherAnalysis = analysisData.filter(item =>
-  //   !['civil-war-viewpoint', 'liberation-viewpoint'].includes(item.id)
+  //   !['national-independence-thought', 'socialist-thought'].includes(item.id)
   // )
 
   const renderViewpointContent = () => {
     switch (selectedViewpoint) {
-      case 'civil-war':
-        return civilWarData
-      case 'liberation':
-        return liberationData
+      case 'independence':
+        return independenceData
+      case 'socialism':
+        return socialismData
       case 'comparison':
         return analysisData
       default:
@@ -66,14 +66,14 @@ const AnalysisPage = () => {
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
             <BarChart3 className="w-4 h-4 mr-2" />
-            Phân tích dữ kiện lịch sử
+            Phân tích tư tưởng
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            <span className="text-gradient">Hai quan điểm đối lập</span>
+            <span className="text-gradient">Tư tưởng Hồ Chí Minh</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Phân tích so sánh quan điểm "Nội chiến" và "Giải phóng dân tộc"
-            dựa trên các dữ kiện lịch sử khách quan.
+            Phân tích sâu sắc về tư tưởng độc lập dân tộc và chủ nghĩa xã hội
+            của Chủ tịch Hồ Chí Minh.
           </p>
         </motion.div>
 
@@ -120,35 +120,35 @@ const AnalysisPage = () => {
           >
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                So sánh tổng quan hai quan điểm
+                Tổng quan hai tư tưởng cốt lõi
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Civil War Viewpoint */}
+                {/* Independence Thought */}
                 <div className="bg-red-50 rounded-xl p-6 border border-red-200">
                   <div className="flex items-center space-x-3 mb-4">
                     <XCircle className="w-6 h-6 text-red-600" />
-                    <h3 className="text-xl font-bold text-red-800">Quan điểm "Nội chiến"</h3>
+                    <h3 className="text-xl font-bold text-red-800">Tư tưởng độc lập dân tộc</h3>
                   </div>
                   <ul className="space-y-2 text-red-700">
-                    <li>• Cùng dân tộc đánh nhau</li>
-                    <li>• Phân chia lãnh thổ tạm thời</li>
-                    <li>• Tranh chấp quyền lực nội bộ</li>
-                    <li>• Xung đột tư tưởng</li>
+                    <li>• Khát vọng giải phóng dân tộc</li>
+                    <li>• Xây dựng nhà nước độc lập</li>
+                    <li>• Đại đoàn kết dân tộc</li>
+                    <li>• Tự lực cánh sinh</li>
                   </ul>
                 </div>
 
-                {/* Liberation Viewpoint */}
+                {/* Socialist Thought */}
                 <div className="bg-green-50 rounded-xl p-6 border border-green-200">
                   <div className="flex items-center space-x-3 mb-4">
                     <CheckCircle className="w-6 h-6 text-green-600" />
-                    <h3 className="text-xl font-bold text-green-800">Quan điểm "Giải phóng dân tộc"</h3>
+                    <h3 className="text-xl font-bold text-green-800">Tư tưởng chủ nghĩa xã hội</h3>
                   </div>
                   <ul className="space-y-2 text-green-700">
-                    <li>• Vi phạm Hiệp định Geneva</li>
-                    <li>• Can thiệp ngoại bang của Mỹ</li>
-                    <li>• Đàn áp nhân dân vô tội</li>
-                    <li>• Đấu tranh chính nghĩa</li>
+                    <li>• Xóa bỏ chế độ bóc lột</li>
+                    <li>• Dân chủ nhân dân</li>
+                    <li>• Phát triển toàn diện</li>
+                    <li>• Con người mới xã hội chủ nghĩa</li>
                   </ul>
                 </div>
               </div>

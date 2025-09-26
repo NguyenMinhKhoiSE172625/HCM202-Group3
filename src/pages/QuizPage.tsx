@@ -159,7 +159,7 @@ const QuizPage = () => {
               <span className="text-gradient">Kiểm tra kiến thức</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Ôn tập và kiểm tra hiểu biết về giai đoạn lịch sử 1954-1964 thông qua {quizQuestions.length} câu hỏi tương tác
+              Ôn tập và kiểm tra hiểu biết về tư tưởng Hồ Chí Minh thông qua {quizQuestions.length} câu hỏi tương tác
             </p>
           </motion.div>
 

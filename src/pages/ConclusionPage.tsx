@@ -17,54 +17,54 @@ import {
 
 const ConclusionPage = () => {
   const mainConclusion = {
-    title: "CUỘC ĐẤU TRANH GIẢI PHÓNG DÂN TỘC",
-    description: "Giai đoạn 1954-1964 ở Việt Nam KHÔNG PHẢI là nội chiến mà là cuộc đấu tranh giải phóng dân tộc"
+    title: "TƯ TƯỞNG VĨ ĐẠI CỦA HỒ CHÍ MINH",
+    description: "Tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Hồ Chí Minh là sự kết hợp hài hòa, sáng tạo và phù hợp với điều kiện Việt Nam"
   }
 
-  const legalBasis = [
-    "Vi phạm Hiệp định Geneva: Chính quyền Sài Gòn đơn phương từ chối thực hiện cam kết quốc tế",
-    "Tính bất hợp pháp: Sự phân chia không có cơ sở pháp lý sau 1956",
-    "Quyền chính đáng: Nhân dân có quyền đấu tranh cho thống nhất"
+  const theoreticalBasis = [
+    "Kết hợp sáng tạo: Vận dụng chủ nghĩa Mác-Lênin vào điều kiện cụ thể của Việt Nam",
+    "Tính khoa học: Dựa trên quy luật khách quan của lịch sử và xã hội",
+    "Tính thực tiễn: Xuất phát từ thực tế và phục vụ thực tiễn cách mạng"
   ]
 
-  const politicalBasis = [
-    "Can thiệp ngoại bang: Mỹ thực tế kiểm soát chính quyền miền Nam",
-    "Tính tay sai: Chính quyền Sài Gòn phụ thuộc hoàn toàn vào Mỹ",
-    "Ý chí nhân dân: Đa số nhân dân mong muốn thống nhất"
+  const practicalBasis = [
+    "Thành công lịch sử: Dẫn dắt cách mạng Việt Nam từ thắng lợi này đến thắng lợi khác",
+    "Tính hiện thực: Phù hợp với điều kiện kinh tế - xã hội của Việt Nam",
+    "Sức sống mãnh liệt: Tiếp tục là kim chỉ nam trong thời kỳ đổi mới"
   ]
 
-  const socialBasis = [
-    "Đàn áp tàn bạo: Chiến dịch 'Tố Cộng' giết hại người vô tội",
-    "Bóc lột kinh tế: Chính sách phục vụ lợi ích ngoại bang",
-    "Phá hoại văn hóa: Áp đặt lối sống phương Tây"
+  const valueBasis = [
+    "Tính nhân văn: Đặt con người làm trung tâm của mọi chính sách",
+    "Tính dân tộc: Giữ gìn và phát huy bản sắc văn hóa dân tộc",
+    "Tính thời đại: Hướng tới những giá trị tiến bộ của nhân loại"
   ]
 
   const characteristics = [
     {
       icon: Flag,
-      title: "Tính chính nghĩa",
+      title: "Tính độc lập dân tộc",
       points: [
-        "Đấu tranh vì độc lập, thống nhất, dân chủ",
-        "Chống lại sự can thiệp và áp bức",
-        "Bảo vệ chủ quyền quốc gia"
+        "Khát vọng giải phóng dân tộc khỏi ách thống trị",
+        "Xây dựng nhà nước độc lập, tự chủ",
+        "Đại đoàn kết toàn dân tộc"
       ]
     },
     {
       icon: Globe,
-      title: "Sự ủng hộ quốc tế",
+      title: "Tính chủ nghĩa xã hội",
       points: [
-        "Phong trào Không liên kết ủng hộ",
-        "Các nước xã hội chủ nghĩa giúp đỡ",
-        "Dư luận thế giới đồng tình"
+        "Xóa bỏ chế độ bóc lột, xây dựng xã hội công bằng",
+        "Nhân dân làm chủ đất nước",
+        "Phát triển toàn diện con người"
       ]
     },
     {
       icon: Users,
-      title: "Tính nhân dân",
+      title: "Tính kết hợp hài hòa",
       points: [
-        "Có sự tham gia của mọi tầng lớp nhân dân",
-        "Được lãnh đạo bởi lực lượng yêu nước chân chính",
-        "Mục tiêu vì lợi ích của dân tộc"
+        "Độc lập dân tộc là tiền đề, chủ nghĩa xã hội là định hướng",
+        "Bổ sung và thúc đẩy lẫn nhau",
+        "Phù hợp với điều kiện cụ thể của Việt Nam"
       ]
     }
   ]
@@ -74,18 +74,18 @@ const ConclusionPage = () => {
       icon: Flag,
       title: "Đối với Việt Nam",
       points: [
-        "Khẳng định truyền thống đấu tranh yêu nước",
-        "Chứng minh ý chí thống nhất của dân tộc",
-        "Góp phần vào thắng lợi cuối cùng (1975)"
+        "Định hướng con đường cách mạng và xây dựng đất nước",
+        "Nền tảng tư tưởng cho sự nghiệp đổi mới",
+        "Kim chỉ nam cho các thế hệ mai sau"
       ]
     },
     {
       icon: Globe,
       title: "Đối với thế giới",
       points: [
-        "Một trang sử vẻ vang của phong trào giải phóng dân tộc",
-        "Bài học về quyền tự quyết của các dân tộc",
-        "Cảnh báo về hậu quả của can thiệp ngoại bang"
+        "Mô hình kết hợp độc lập dân tộc với chủ nghĩa xã hội",
+        "Kinh nghiệm quý báu cho các dân tộc bị áp bức",
+        "Đóng góp vào kho tàng tư tưởng nhân loại"
       ]
     }
   ]
@@ -93,20 +93,20 @@ const ConclusionPage = () => {
   const lessons = [
     {
       icon: Shield,
-      title: "Về đấu tranh giải phóng dân tộc",
+      title: "Về xây dựng tư tưởng cách mạng",
       points: [
-        "Cần có sự lãnh đạo đúng đắn",
-        "Phải dựa vào sức mạnh nhân dân",
-        "Kết hợp đấu tranh trong nước và quốc tế"
+        "Phải kết hợp tính dân tộc với tính thời đại",
+        "Vận dụng sáng tạo lý luận vào thực tiễn",
+        "Xuất phát từ lợi ích của nhân dân"
       ]
     },
     {
       icon: Heart,
-      title: "Về xây dựng và bảo vệ đất nước",
+      title: "Về lãnh đạo cách mạng",
       points: [
-        "Độc lập gắn liền với thống nhất",
-        "Không được phép hy sinh chủ quyền",
-        "Đoàn kết dân tộc là sức mạnh cơ bản"
+        "Cần có tư tưởng chỉ đạo đúng đắn",
+        "Phải gắn bó mật thiết với nhân dân",
+        "Kiên định mục tiêu, linh hoạt về phương pháp"
       ]
     }
   ]
@@ -129,8 +129,8 @@ const ConclusionPage = () => {
             <span className="text-gradient">Kết luận khoa học</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Dựa trên phân tích toàn diện các dữ kiện lịch sử, chúng ta đưa ra kết luận khách quan
-            về tính chất thực sự của giai đoạn 1954-1964.
+            Dựa trên phân tích toàn diện, chúng ta đưa ra kết luận khách quan
+            về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Hồ Chí Minh.
           </p>
         </motion.div>
 
@@ -177,16 +177,16 @@ const ConclusionPage = () => {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Legal Basis */}
+            {/* Theoretical Basis */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-blue-500">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                   <Gavel className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">A. Căn cứ pháp lý</h3>
+                <h3 className="text-xl font-bold text-gray-900">A. Căn cứ lý luận</h3>
               </div>
               <ul className="space-y-4">
-                {legalBasis.map((basis, index) => (
+                {theoreticalBasis.map((basis, index) => (
                   <motion.li
                     key={index}
                     className="flex items-start space-x-3"
@@ -201,16 +201,16 @@ const ConclusionPage = () => {
               </ul>
             </div>
 
-            {/* Political Basis */}
+            {/* Practical Basis */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-purple-500">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
                   <Users className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">B. Căn cứ chính trị</h3>
+                <h3 className="text-xl font-bold text-gray-900">B. Căn cứ thực tiễn</h3>
               </div>
               <ul className="space-y-4">
-                {politicalBasis.map((basis, index) => (
+                {practicalBasis.map((basis, index) => (
                   <motion.li
                     key={index}
                     className="flex items-start space-x-3"
@@ -225,16 +225,16 @@ const ConclusionPage = () => {
               </ul>
             </div>
 
-            {/* Social Basis */}
+            {/* Value Basis */}
             <div className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-green-500">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">C. Căn cứ xã hội</h3>
+                <h3 className="text-xl font-bold text-gray-900">C. Căn cứ giá trị</h3>
               </div>
               <ul className="space-y-4">
-                {socialBasis.map((basis, index) => (
+                {valueBasis.map((basis, index) => (
                   <motion.li
                     key={index}
                     className="flex items-start space-x-3"
@@ -260,7 +260,7 @@ const ConclusionPage = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Đặc điểm của cuộc đấu tranh giải phóng dân tộc
+            Đặc điểm của tư tưởng Hồ Chí Minh
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

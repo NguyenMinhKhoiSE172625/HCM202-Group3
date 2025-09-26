@@ -4,158 +4,158 @@ export interface QuizQuestion {
   options: string[];
   correctAnswer: number;
   explanation: string;
-  category: 'hiep-dinh-geneva' | 'chinh-quyen-sai-gon' | 'dau-tranh-giai-phong' | 'can-thiep-my' | 'y-nghia-lich-su';
+  category: 'tu-tuong-doc-lap' | 'tu-tuong-xa-hoi' | 'ket-hop-hai-tu-tuong' | 'van-dung-thuc-tien' | 'y-nghia-lich-su';
   difficulty: 'easy' | 'medium' | 'hard';
 }
 
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    question: "Sau chiến thắng Điện Biên Phủ 1954, thực dân Pháp buộc phải ký văn kiện nào?",
+    question: "Tư tưởng độc lập dân tộc của Hồ Chí Minh được hình thành từ khát vọng nào?",
     options: [
-      "Hiệp định Paris",
-      "Hiệp định Geneva",
-      "Hiệp định Fontainebleau",
-      "Hiệp định Sơ bộ"
+      "Khát vọng làm giàu cho cá nhân",
+      "Khát vọng giải phóng dân tộc khỏi ách thống trị",
+      "Khát vọng trở thành lãnh đạo",
+      "Khát vọng du lịch khắp thế giới"
     ],
     correctAnswer: 1,
-    explanation: "Hiệp định Geneva được ký ngày 21/7/1954, kết thúc cuộc chiến tranh Đông Dương lần thứ nhất và thiết lập nền tảng cho việc thống nhất Việt Nam.",
-    category: 'hiep-dinh-geneva',
+    explanation: "Tư tưởng độc lập dân tộc của Hồ Chí Minh xuất phát từ khát vọng giải phóng dân tộc Việt Nam khỏi ách thống trị của thực dân, phong kiến.",
+    category: 'tu-tuong-doc-lap',
     difficulty: 'easy'
   },
   {
     id: 2,
-    question: "Theo Hiệp định Geneva 1954, đất nước Việt Nam sẽ được thống nhất bằng hình thức nào?",
+    question: "Hồ Chí Minh tiếp xúc với tư tưởng Mác-Lênin lần đầu tiên ở đâu?",
     options: [
-      "Hiệp thương chính trị",
-      "Trưng cầu dân ý",
-      "Tổng tuyển cử trong cả nước",
-      "Hòa đàm quốc tế"
+      "Liên Xô",
+      "Trung Quốc",
+      "Pháp",
+      "Đức"
     ],
     correctAnswer: 2,
-    explanation: "Hiệp định Geneva quy định tổ chức tổng tuyển cử thống nhất trong 2 năm (1956) để thống nhất đất nước một cách hòa bình.",
-    category: 'hiep-dinh-geneva',
+    explanation: "Hồ Chí Minh tiếp xúc với tư tưởng Mác-Lênin lần đầu tiên khi ở Paris, Pháp, thông qua việc đọc 'Luận cương về vấn đề dân tộc và thuộc địa' của Lênin.",
+    category: 'tu-tuong-xa-hoi',
     difficulty: 'medium'
   },
   {
     id: 3,
-    question: "Ai là người đứng đầu chính quyền miền Nam Việt Nam giai đoạn 1955–1963, dưới sự hậu thuẫn của Mỹ?",
+    question: "Đảng Cộng sản Việt Nam được thành lập vào ngày nào?",
     options: [
-      "Trần Văn Hương",
-      "Ngô Đình Diệm",
-      "Nguyễn Văn Thiệu",
-      "Dương Văn Minh"
+      "19/5/1890",
+      "3/2/1930",
+      "2/9/1945",
+      "19/5/1941"
     ],
     correctAnswer: 1,
-    explanation: "Ngô Đình Diệm được Mỹ hỗ trợ lên nắm quyền tại miền Nam từ 1954 và cai trị đến khi bị đảo chính năm 1963.",
-    category: 'chinh-quyen-sai-gon',
+    explanation: "Đảng Cộng sản Việt Nam được Hồ Chí Minh thành lập ngày 3/2/1930 tại Hồng Kông, đánh dấu sự kết hợp giữa chủ nghĩa yêu nước và chủ nghĩa xã hội.",
+    category: 'tu-tuong-xa-hoi',
     difficulty: 'easy'
   },
   {
     id: 4,
-    question: "Năm nào chính quyền Sài Gòn từ chối tổ chức tổng tuyển cử, vi phạm Hiệp định Geneva?",
+    question: "Việt Minh được thành lập vào năm nào?",
     options: [
-      "1955",
-      "1956",
-      "1957",
-      "1958"
+      "1930",
+      "1941",
+      "1945",
+      "1954"
     ],
     correctAnswer: 1,
-    explanation: "Năm 1956, chính quyền Ngô Đình Diệm đơn phương từ chối tổ chức tổng tuyển cử với lý do 'miền Bắc không tự do', vi phạm nghiêm trọng Hiệp định Geneva.",
-    category: 'chinh-quyen-sai-gon',
+    explanation: "Việt Minh được thành lập ngày 19/5/1941 tại Pác Bó, Cao Bằng, thể hiện tư tưởng đại đoàn kết dân tộc của Hồ Chí Minh.",
+    category: 'ket-hop-hai-tu-tuong',
     difficulty: 'medium'
   },
   {
     id: 5,
-    question: "Luật 10/59 của chính quyền Ngô Đình Diệm quy định điều gì?",
+    question: "Tuyên ngôn độc lập 2/9/1945 thể hiện điều gì?",
     options: [
-      "Cấm mọi tổ chức công đoàn",
-      "Cộng sản bị coi là tội tử hình",
-      "Tất cả thanh niên phải đi lính",
-      "Quốc hữu hóa ruộng đất"
+      "Chỉ có tư tưởng độc lập dân tộc",
+      "Chỉ có tư tưởng xã hội chủ nghĩa",
+      "Sự kết hợp độc lập dân tộc với dân chủ nhân dân",
+      "Không có tư tưởng gì rõ ràng"
     ],
-    correctAnswer: 1,
-    explanation: "Luật 10/59 quy định tử hình không cần xét xử đối với những ai bị coi là 'cộng sản', là công cụ đàn áp tàn bạo trong chiến dịch 'Tố Cộng'.",
-    category: 'chinh-quyen-sai-gon',
+    correctAnswer: 2,
+    explanation: "Tuyên ngôn độc lập 2/9/1945 thể hiện sự kết hợp hài hòa giữa độc lập dân tộc và dân chủ nhân dân, nền tảng của nhà nước Việt Nam.",
+    category: 'ket-hop-hai-tu-tuong',
     difficulty: 'medium'
   },
   {
     id: 6,
-    question: "Tổ chức nào ra đời năm 1960 nhằm đoàn kết lực lượng cách mạng miền Nam?",
+    question: "Cải cách ruộng đất 1953-1956 thể hiện tư tưởng nào của Hồ Chí Minh?",
     options: [
-      "Liên Việt",
-      "Việt Minh",
-      "Mặt trận Dân tộc Giải phóng miền Nam Việt Nam",
-      "Hội Liên hiệp Phụ nữ Giải phóng"
+      "Chỉ có tư tưởng độc lập dân tộc",
+      "Chỉ có tư tưởng xã hội chủ nghĩa",
+      "Kết hợp độc lập dân tộc với xây dựng xã hội công bằng",
+      "Không liên quan đến tư tưởng"
     ],
     correctAnswer: 2,
-    explanation: "Mặt trận Dân tộc Giải phóng miền Nam Việt Nam được thành lập ngày 20/12/1960 để đoàn kết các lực lượng yêu nước chống lại chế độ Mỹ-Diệm.",
-    category: 'dau-tranh-giai-phong',
+    explanation: "Cải cách ruộng đất thể hiện việc vận dụng tư tưởng xã hội chủ nghĩa để xây dựng xã hội công bằng, đồng thời củng cố độc lập dân tộc.",
+    category: 'van-dung-thuc-tien',
     difficulty: 'easy'
   },
   {
     id: 7,
-    question: "Sự kiện nào năm 1963 đã làm chính quyền Ngô Đình Diệm sụp đổ?",
+    question: "Đường lối 'kháng chiến kiến quốc' thể hiện điều gì?",
     options: [
-      "Biến cố Phật giáo Huế",
-      "Đảo chính quân sự",
-      "Biểu tình nông dân",
-      "Sự kiện Vịnh Bắc Bộ"
+      "Chỉ tập trung kháng chiến",
+      "Chỉ tập trung xây dựng đất nước",
+      "Kết hợp kháng chiến với xây dựng đất nước",
+      "Không có mục tiêu rõ ràng"
     ],
-    correctAnswer: 1,
-    explanation: "Cuộc đảo chính quân sự ngày 2/11/1963 do quân đội miền Nam thực hiện với sự đứng sau của Mỹ đã lật đổ và giết chết Ngô Đình Diệm.",
-    category: 'chinh-quyen-sai-gon',
+    correctAnswer: 2,
+    explanation: "Đường lối 'kháng chiến kiến quốc' thể hiện sự kết hợp hài hòa giữa bảo vệ độc lập dân tộc và xây dựng chế độ xã hội mới.",
+    category: 'van-dung-thuc-tien',
     difficulty: 'medium'
   },
   {
     id: 8,
-    question: "Năm 1964, sự kiện nào tạo cớ để Mỹ đưa quân trực tiếp vào Việt Nam?",
+    question: "Di chúc của Chủ tịch Hồ Chí Minh khẳng định điều gì?",
     options: [
-      "Đảo chính lật đổ Ngô Đình Diệm",
-      "Phong trào Đồng khởi",
-      "Sự kiện Vịnh Bắc Bộ",
-      "Thành lập Mặt trận Dân tộc Giải phóng"
+      "Chỉ cần độc lập dân tộc",
+      "Chỉ cần chủ nghĩa xã hội",
+      "Độc lập dân tộc và chủ nghĩa xã hội là hai mục tiêu chiến lược",
+      "Không cần mục tiêu gì"
     ],
     correctAnswer: 2,
-    explanation: "Sự kiện Vịnh Bắc Bộ tháng 8/1964 được Mỹ tạo ra làm cớ để Quốc hội Mỹ thông qua nghị quyết cho phép can thiệp quân sự trực tiếp.",
-    category: 'can-thiep-my',
+    explanation: "Di chúc Hồ Chí Minh khẳng định 'Độc lập dân tộc và chủ nghĩa xã hội là hai mục tiêu chiến lược của cách mạng Việt Nam'.",
+    category: 'ket-hop-hai-tu-tuong',
     difficulty: 'medium'
   },
   {
     id: 9,
-    question: "Vì sao cuộc chiến 1954–1964 ở Việt Nam không phải là 'nội chiến'?",
+    question: "Tư tưởng Hồ Chí Minh có ý nghĩa gì đối với thời đại ngày nay?",
     options: [
-      "Vì hai miền chưa có hiến pháp riêng",
-      "Vì chính quyền miền Nam là sản phẩm do Mỹ dựng lên, nhân dân đấu tranh chống ngoại xâm",
-      "Vì miền Bắc không tham gia chiến đấu",
-      "Vì không có sự tham gia của nhân dân miền Nam"
+      "Chỉ có ý nghĩa lịch sử",
+      "Không còn phù hợp",
+      "Tiếp tục là kim chỉ nam cho sự nghiệp đổi mới",
+      "Chỉ áp dụng cho quá khứ"
     ],
-    correctAnswer: 1,
-    explanation: "Cuộc đấu tranh là giải phóng dân tộc vì chính quyền Sài Gòn là tay sai của Mỹ, nhân dân đấu tranh chống can thiệp ngoại bang để thống nhất đất nước.",
+    correctAnswer: 2,
+    explanation: "Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội tiếp tục là kim chỉ nam cho sự nghiệp đổi mới và phát triển đất nước.",
     category: 'y-nghia-lich-su',
     difficulty: 'hard'
   },
   {
     id: 10,
-    question: "Bài học lớn nhất từ giai đoạn 1954–1964 là gì?",
+    question: "Đặc điểm nổi bật nhất của tư tưởng Hồ Chí Minh là gì?",
     options: [
-      "Đoàn kết dân tộc và kết hợp sức mạnh thời đại",
-      "Tập trung xây dựng kinh tế",
-      "Giữ quan hệ ngoại giao với Pháp",
-      "Thỏa hiệp với Mỹ"
+      "Chỉ có tính dân tộc",
+      "Chỉ có tính quốc tế",
+      "Kết hợp hài hòa tính dân tộc với tính thời đại",
+      "Không có đặc điểm gì"
     ],
-    correctAnswer: 0,
-    explanation: "Bài học quan trọng nhất là phải đoàn kết toàn dân tộc và kết hợp sức mạnh thời đại để bảo vệ độc lập, chủ quyền quốc gia.",
+    correctAnswer: 2,
+    explanation: "Đặc điểm nổi bật nhất là sự kết hợp hài hòa giữa tính dân tộc (độc lập dân tộc) với tính thời đại (chủ nghĩa xã hội).",
     category: 'y-nghia-lich-su',
     difficulty: 'hard'
   }
 ];
 
 export const quizCategories = [
-  { id: 'hiep-dinh-geneva', name: 'Hiệp định Geneva', color: 'bg-blue-500' },
-  { id: 'chinh-quyen-sai-gon', name: 'Chính quyền Sài Gòn', color: 'bg-red-500' },
-  { id: 'dau-tranh-giai-phong', name: 'Đấu tranh giải phóng', color: 'bg-green-500' },
-  { id: 'can-thiep-my', name: 'Can thiệp của Mỹ', color: 'bg-purple-500' },
+  { id: 'tu-tuong-doc-lap', name: 'Tư tưởng độc lập dân tộc', color: 'bg-blue-500' },
+  { id: 'tu-tuong-xa-hoi', name: 'Tư tưởng xã hội chủ nghĩa', color: 'bg-red-500' },
+  { id: 'ket-hop-hai-tu-tuong', name: 'Kết hợp hai tư tưởng', color: 'bg-green-500' },
+  { id: 'van-dung-thuc-tien', name: 'Vận dụng thực tiễn', color: 'bg-purple-500' },
   { id: 'y-nghia-lich-su', name: 'Ý nghĩa lịch sử', color: 'bg-orange-500' }
 ];
 

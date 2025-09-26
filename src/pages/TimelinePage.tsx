@@ -65,11 +65,11 @@ const TimelinePage = () => {
             Dòng thời gian lịch sử
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            <span className="text-gradient">Giai đoạn 1954-1964</span>
+            <span className="text-gradient">Tư tưởng Hồ Chí Minh</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Theo dõi các sự kiện quan trọng trong giai đoạn 10 năm sau Hiệp định Geneva,
-            từ việc thực hiện hiệp định đến sự leo thang can thiệp của Mỹ.
+            Theo dõi các mốc quan trọng trong quá trình hình thành và phát triển
+            tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh.
           </p>
         </motion.div>
 

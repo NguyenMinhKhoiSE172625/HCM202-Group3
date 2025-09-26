@@ -25,8 +25,8 @@ const DocumentsPage = () => {
 
   const documentTypes = [
     { value: 'all', label: 'Tất cả', icon: FileText },
-    { value: 'agreement', label: 'Hiệp định', icon: Scale },
-    { value: 'law', label: 'Luật pháp', icon: ScrollText },
+    { value: 'agreement', label: 'Tác phẩm', icon: Scale },
+    { value: 'law', label: 'Văn kiện', icon: ScrollText },
     { value: 'report', label: 'Báo cáo', icon: BarChart3 },
     { value: 'memoir', label: 'Hồi ký', icon: UserCheck },
     { value: 'study', label: 'Nghiên cứu', icon: BookOpen }
@@ -93,11 +93,11 @@ const DocumentsPage = () => {
             Tài liệu tham khảo
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            <span className="text-gradient">Nguồn tài liệu lịch sử</span>
+            <span className="text-gradient">Nguồn tài liệu tham khảo</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Tổng hợp các tài liệu chính thức, nghiên cứu học thuật và nguồn tham khảo đáng tin cậy
-            về giai đoạn 1954-1964.
+            Tổng hợp các tác phẩm, văn kiện và nghiên cứu học thuật đáng tin cậy
+            về tư tưởng Hồ Chí Minh.
           </p>
         </motion.div>
 

@@ -37,27 +37,27 @@ const AIHistoricalAssistant = () => {
 
   const aiPersona: Persona = {
     id: 'ai-assistant',
-    name: 'AI Lịch sử Việt Nam',
-    title: 'Trợ lý AI chuyên về lịch sử 1954-1964',
+    name: 'AI Tư tưởng Hồ Chí Minh',
+    title: 'Trợ lý AI chuyên về tư tưởng Hồ Chí Minh',
     avatar: '/images/img2.svg',
-    description: 'AI được huấn luyện chuyên sâu về lịch sử Việt Nam',
+    description: 'AI được huấn luyện chuyên sâu về tư tưởng Hồ Chí Minh',
     color: 'from-blue-500 to-purple-600',
     personality: 'intelligent'
   }
 
   const suggestedQuestions = [
-    "Tại sao Ngô Đình Diệm từ chối tổng tuyển cử năm 1956?",
-    "Chiến dịch Tố Cộng diễn ra như thế nào?",
-    "Mặt trận Giải phóng được thành lập vì lý do gì?",
-    "Vai trò của Mỹ trong giai đoạn 1954-1964?",
-    "Hiệp định Geneva có ý nghĩa gì?",
-    "Cuộc sống của nhân dân miền Nam ra sao?",
-    "So sánh quan điểm nội chiến và giải phóng dân tộc",
-    "Tầm quan trọng của năm 1960 trong lịch sử Việt Nam?"
+    "Tư tưởng độc lập dân tộc của Hồ Chí Minh có đặc điểm gì?",
+    "Chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh như thế nào?",
+    "Hai tư tưởng này kết hợp với nhau ra sao?",
+    "Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh?",
+    "Tuyên ngôn độc lập 1945 thể hiện tư tưởng gì?",
+    "Di chúc Hồ Chí Minh có nội dung chính nào?",
+    "Tư tưởng Hồ Chí Minh ảnh hưởng đến cách mạng Việt Nam?",
+    "Giá trị thời đại của tư tưởng Hồ Chí Minh?"
   ]
 
   const initialMessage = useMemo(() =>
-    "Xin chào! Tôi là AI Lịch sử Việt Nam, được huấn luyện chuyên sâu về giai đoạn 1954-1964. Tôi có thể giúp bạn tìm hiểu về Hiệp định Geneva, Chiến dịch Tố Cộng, Mặt trận Giải phóng, và nhiều sự kiện quan trọng khác trong thời kỳ này. Bạn muốn tìm hiểu về vấn đề gì?"
+    "Xin chào! Tôi là AI Tư tưởng Hồ Chí Minh, được huấn luyện chuyên sâu về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh. Tôi có thể giúp bạn tìm hiểu về sự hình thành, phát triển và ý nghĩa của hai tư tưởng cốt lõi này. Bạn muốn tìm hiểu về vấn đề gì?"
   , [])
 
           const generateAIResponse = async (message: string): Promise<string> => {
@@ -80,28 +80,28 @@ const AIHistoricalAssistant = () => {
       // Get conversation history from localStorage
       const conversationHistory = JSON.parse(localStorage.getItem('ai-chat-history') || '[]')
 
-      // System prompt for Vietnam History 1954-1964 based on SIMPLE_SYSTEM_INSTRUCTIONS.txt
-      const systemPrompt = `Bạn là một AI chuyên gia về lịch sử Việt Nam giai đoạn 1954-1964. Bạn được huấn luyện chuyên sâu để cung cấp thông tin chính xác, khách quan về thời kỳ quan trọng này.
+      // System prompt for Ho Chi Minh's Thought
+      const systemPrompt = `Bạn là một AI chuyên gia về tư tưởng Hồ Chí Minh. Bạn được huấn luyện chuyên sâu để cung cấp thông tin chính xác, khách quan về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh.
 
 KIẾN THỨC CỐT LÕI:
-- Hiệp định Geneva 1954 (21/7/1954): Kết thúc chiến tranh Đông Dương, tạm chia Việt Nam tại vĩ tuyến 17
-- Ngô Đình Diệm (1954-1963): Từ chối tổng tuyển cử 1956, thực hiện Chiến dịch Tố Cộng
-- Chiến dịch Tố Cộng (1955-1959): Luật 10/59, hơn 100,000 người bị bắt, 25,000 người bị giết
-- Mặt trận Dân tộc Giải phóng miền Nam (20/12/1960): Phản ứng trước sự đàn áp của chế độ Mỹ-Diệm
-- Can thiệp của Mỹ: Từ 3,200 quân (1961) lên 23,300 quân (1964)
+- Tư tưởng độc lập dân tộc: Khát vọng giải phóng dân tộc, xây dựng nhà nước độc lập, tự chủ, đại đoàn kết toàn dân
+- Tư tưởng chủ nghĩa xã hội: Xóa bỏ chế độ bóc lột, xây dựng xã hội công bằng, nhân dân làm chủ
+- Sự kết hợp hài hòa: Độc lập dân tộc là tiền đề, chủ nghĩa xã hội là định hướng, bổ sung thúc đẩy lẫn nhau
+- Mốc quan trọng: Tuyên ngôn độc lập (1945), thành lập Đảng (1930), Di chúc (1969)
+- Ý nghĩa: Định hướng cách mạng Việt Nam, đóng góp vào kho tàng tư tưởng nhân loại
 
 NGUYÊN TẮC TRẢ LỜI:
 1. Sử dụng tiếng Việt chuẩn, dễ hiểu
-2. Cung cấp thông tin chính xác với năm tháng, số liệu cụ thể
-3. Giải thích bối cảnh lịch sử
-4. Cân bằng các quan điểm khác nhau
+2. Cung cấp thông tin chính xác với năm tháng, sự kiện cụ thể
+3. Giải thích bối cảnh lịch sử và ý nghĩa tư tưởng
+4. Phân tích sự kết hợp giữa hai tư tưởng cốt lõi
 5. Độ dài 100-400 từ tùy theo độ phức tạp
 6. Giọng điệu thân thiện, khoa học, khách quan
 7. Khuyến khích tư duy phản biện
 
 ĐIỀU CẤM:
 - Không bịa đặt sự kiện lịch sử
-- Không trả lời câu hỏi ngoài phạm vi 1954-1964
+- Không trả lời câu hỏi ngoài phạm vi tư tưởng Hồ Chí Minh
 - Không thể hiện quan điểm chính trị hiện tại
 - Không thiên vị quá mức theo một quan điểm duy nhất`
 
@@ -150,7 +150,7 @@ NGUYÊN TẮC TRẢ LỜI:
       }
 
       // Fallback response
-      return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về lịch sử Việt Nam 1954-1964. Bạn có thể thử hỏi lại sau ít phút được không?"
+      return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về tư tưởng Hồ Chí Minh. Bạn có thể thử hỏi lại sau ít phút được không?"
     }
   }
 

@@ -39,22 +39,22 @@ const HomePage = () => {
     {
       icon: Target,
       title: 'Mục tiêu nghiên cứu',
-      description: 'Phân tích tính chất cuộc đấu tranh 1954-1964 - Nội chiến hay Giải phóng dân tộc?'
+      description: 'Tìm hiểu tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh'
     },
     {
       icon: Calendar,
-      title: 'Khung thời gian',
-      description: '10 năm sau Hiệp định Geneva (1954-1964) - Giai đoạn quan trọng trong lịch sử dân tộc'
+      title: 'Quá trình hình thành',
+      description: 'Từ những năm đầu hoạt động cách mạng đến khi thành lập nước Việt Nam Dân chủ Cộng hòa'
     },
     {
       icon: Globe,
-      title: 'Bối cảnh quốc tế',
-      description: 'Thời kỳ Chiến tranh Lạnh, phong trào giải phóng dân tộc trên thế giới'
+      title: 'Bối cảnh lịch sử',
+      description: 'Thời kỳ phong trào giải phóng dân tộc và cách mạng xã hội chủ nghĩa thế giới'
     },
     {
       icon: Users,
-      title: 'Tác động xã hội',
-      description: 'Ảnh hưởng sâu sắc đến đời sống nhân dân và vận mệnh đất nước'
+      title: 'Ý nghĩa thời đại',
+      description: 'Tác động sâu sắc đến sự nghiệp giải phóng dân tộc và xây dựng chủ nghĩa xã hội'
     }
   ]
 
@@ -118,7 +118,7 @@ const HomePage = () => {
               className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={itemVariants}
             >
-              <span className="text-gradient">VIỆT NAM 1954-1964</span>
+              <span className="text-gradient">TƯ TƯỞNG HỒ CHÍ MINH</span>
               <br />
               <motion.span
                 className="text-3xl md:text-4xl text-gray-700"
@@ -126,7 +126,7 @@ const HomePage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
               >
-                Nội chiến hay Giải phóng dân tộc?
+                Độc lập dân tộc và Chủ nghĩa xã hội
               </motion.span>
             </motion.h1>
 
@@ -134,7 +134,7 @@ const HomePage = () => {
               className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
               variants={itemVariants}
             >
-              Khám phá và phân tích giai đoạn lịch sử quan trọng 1954-1964 qua lăng kính khoa học,
+              Khám phá và tìm hiểu tư tưởng vĩ đại của Chủ tịch Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội,
               với sự hỗ trợ của công nghệ hiện đại và trí tuệ nhân tạo.
             </motion.p>
 
@@ -180,7 +180,7 @@ const HomePage = () => {
               Những điểm quan trọng
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Tìm hiểu về bối cảnh lịch sử và tầm quan trọng của giai đoạn 1954-1964
+              Tìm hiểu về quá trình hình thành và phát triển tư tưởng của Chủ tịch Hồ Chí Minh
             </p>
           </motion.div>
 
@@ -272,12 +272,12 @@ const HomePage = () => {
               Hình ảnh lịch sử
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Những hình ảnh đặc trưng giúp tái hiện bối cảnh lịch sử giai đoạn 1954-1964
+              Những hình ảnh đặc trưng về cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Geneva Conference Image Placeholder */}
+            {/* Young Ho Chi Minh Image Placeholder */}
             <motion.div
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
               initial={{ opacity: 0, y: 30 }}
@@ -288,25 +288,25 @@ const HomePage = () => {
               <div className="h-48 relative overflow-hidden">
                 <img
                   src="/images/img1.jpg"
-                  alt="Hiệp định Geneva 1954"
+                  alt="Hồ Chí Minh thời trẻ"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-2 left-2 text-white">
                   <Globe className="w-6 h-6 mb-1" />
-                  <p className="text-xs font-semibold">Geneva 1954</p>
+                  <p className="text-xs font-semibold">Thời trẻ</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Hiệp định Geneva 1954</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Hồ Chí Minh thời trẻ</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Cảnh ký kết Hiệp định Geneva ngày 21/7/1954 với sự tham gia của các đại biểu quốc tế,
-                  đánh dấu kết thúc cuộc kháng chiến chống Pháp và mở ra giai đoạn mới trong lịch sử Việt Nam.
+                  Hình ảnh Nguyễn Ái Quốc thời trẻ, khi bắt đầu hành trình tìm đường cứu nước
+                  và tiếp xúc với tư tưởng Mác-Lênin tại châu Âu.
                 </p>
               </div>
             </motion.div>
 
-            {/* Vietnam Flag 1954 */}
+            {/* Communist Party Foundation */}
             <motion.div
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
               initial={{ opacity: 0, y: 30 }}
@@ -317,25 +317,25 @@ const HomePage = () => {
               <div className="h-48 relative overflow-hidden">
                 <img
                   src="/images/img2.svg"
-                  alt="Quốc kỳ Việt Nam 1954"
+                  alt="Thành lập Đảng Cộng sản Việt Nam"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-2 left-2 text-white">
                   <Flag className="w-6 h-6 mb-1" />
-                  <p className="text-xs font-semibold">Quốc kỳ VN năm 1954</p>
+                  <p className="text-xs font-semibold">Thành lập Đảng 1930</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Quốc kỳ Việt Nam</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Thành lập Đảng Cộng sản Việt Nam</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Lá cờ đỏ sao vàng tung bay sau chiến thắng Điện Biên Phủ,
-                  biểu tượng của độc lập và chủ quyền quốc gia được khẳng định.
+                  Ngày 3/2/1930, Hồ Chí Minh thành lập Đảng Cộng sản Việt Nam,
+                  đánh dấu sự kết hợp giữa chủ nghĩa yêu nước và chủ nghĩa xã hội.
                 </p>
               </div>
             </motion.div>
 
-            {/* US Intervention Image */}
+            {/* Independence Declaration */}
             <motion.div
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
               initial={{ opacity: 0, y: 30 }}
@@ -346,25 +346,25 @@ const HomePage = () => {
               <div className="h-48 relative overflow-hidden">
                 <img
                   src="/images/img3.jpg"
-                  alt="Can thiệp quân sự của Mỹ"
+                  alt="Tuyên ngôn độc lập 2/9/1945"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-2 left-2 text-white">
                   <Sword className="w-6 h-6 mb-1" />
-                  <p className="text-xs font-semibold">Can thiệp Mỹ năm 1961</p>
+                  <p className="text-xs font-semibold">Tuyên ngôn độc lập</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Can thiệp của Mỹ</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Tuyên ngôn độc lập 2/9/1945</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Hình ảnh quân nhân Mỹ có mặt tại miền Nam từ năm 1961,
-                  minh chứng cho sự can thiệp trực tiếp của nước ngoài vào nội chính Việt Nam.
+                  Chủ tịch Hồ Chí Minh đọc Tuyên ngôn độc lập tại Quảng trường Ba Đình,
+                  tuyên bố thành lập nước Việt Nam Dân chủ Cộng hòa.
                 </p>
               </div>
             </motion.div>
 
-            {/* Rural Vietnam 1960s */}
+            {/* Ho Chi Minh with People */}
             <motion.div
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
               initial={{ opacity: 0, y: 30 }}
@@ -375,20 +375,20 @@ const HomePage = () => {
               <div className="h-48 relative overflow-hidden">
                 <img
                   src="/images/img4.jpg"
-                  alt="Đời sống nông thôn Việt Nam thập niên 1960"
+                  alt="Hồ Chí Minh với nhân dân"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-2 left-2 text-white">
                   <Users className="w-6 h-6 mb-1" />
-                  <p className="text-xs font-semibold">Nông thôn VN năm 1960</p>
+                  <p className="text-xs font-semibold">Bác Hồ với nhân dân</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Đời sống nông thôn</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Hồ Chí Minh với nhân dân</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Cảnh đời sống nông thôn Việt Nam thập niên 1960,
-                  nơi diễn ra cuộc đấu tranh của nhân dân vì độc lập và thống nhất.
+                  Hình ảnh Chủ tịch Hồ Chí Minh gần gũi với nhân dân,
+                  thể hiện tư tưởng "Dân là gốc" trong triết lý chính trị của Người.
                 </p>
               </div>
             </motion.div>
@@ -416,13 +416,13 @@ const HomePage = () => {
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Chủ tịch Hồ Chí Minh</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Chân dung Chủ tịch Hồ Chí Minh trong giai đoạn 1954-1964,
-                  người lãnh đạo cuộc đấu tranh giải phóng dân tộc và thống nhất đất nước.
+                  Chân dung Chủ tịch Hồ Chí Minh - người sáng lập ra tư tưởng độc lập dân tộc
+                  gắn liền với chủ nghĩa xã hội ở Việt Nam.
                 </p>
               </div>
             </motion.div>
 
-            {/* People's Liberation Struggle */}
+            {/* Ho Chi Minh Thought Legacy */}
             <motion.div
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
               initial={{ opacity: 0, y: 30 }}
@@ -433,20 +433,20 @@ const HomePage = () => {
               <div className="h-48 relative overflow-hidden">
                 <img
                   src="/images/img6.jpg"
-                  alt="Cuộc đấu tranh giải phóng dân tộc"
+                  alt="Di sản tư tưởng Hồ Chí Minh"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-2 left-2 text-white">
                   <Heart className="w-6 h-6 mb-1" />
-                  <p className="text-xs font-semibold">Đấu tranh</p>
+                  <p className="text-xs font-semibold">Di sản tư tưởng</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Cuộc đấu tranh nhân dân</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Di sản tư tưởng Hồ Chí Minh</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Hình ảnh nhân dân tham gia cuộc đấu tranh giải phóng,
-                  thể hiện tính chất nhân dân và chính nghĩa của cuộc đấu tranh 1954-1964.
+                  Tư tưởng Hồ Chí Minh tiếp tục là kim chỉ nam cho sự nghiệp
+                  xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa.
                 </p>
               </div>
             </motion.div>
@@ -472,7 +472,7 @@ const HomePage = () => {
               <span className="text-gradient">Trò chuyện với AI Lịch sử</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Trải nghiệm học tập tương tác độc đáo với AI Assistant được huấn luyện về lịch sử Việt Nam 1954-1964
+              Trải nghiệm học tập tương tác độc đáo với AI Assistant được huấn luyện về tư tưởng Hồ Chí Minh
             </p>
           </motion.div>
 
@@ -491,10 +491,10 @@ const HomePage = () => {
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">AI Chuyên gia lịch sử</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">AI Chuyên gia tư tưởng</h3>
                     <p className="text-gray-600 text-sm">
-                      Trò chuyện với AI được huấn luyện chuyên sâu về lịch sử Việt Nam
-                      giai đoạn 1954-1964, cung cấp thông tin chính xác và khách quan
+                      Trò chuyện với AI được huấn luyện chuyên sâu về tư tưởng Hồ Chí Minh,
+                      cung cấp thông tin chính xác và khách quan về di sản tư tưởng vĩ đại
                     </p>
                   </div>
                 </div>
@@ -508,8 +508,8 @@ const HomePage = () => {
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">Kiến thức phong phú</h3>
                     <p className="text-gray-600 text-sm">
-                      Được huấn luyện trên dữ liệu lịch sử chính thức,
-                      tài liệu nghiên cứu và các sự kiện quan trọng 1954-1964
+                      Được huấn luyện trên các tác phẩm, bài viết và tài liệu
+                      về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Hồ Chí Minh
                     </p>
                   </div>
                 </div>
@@ -524,7 +524,7 @@ const HomePage = () => {
                     <h3 className="text-lg font-bold text-gray-900 mb-2">Tương tác thông minh</h3>
                     <p className="text-gray-600 text-sm">
                       Hỗ trợ giọng nói tiếng Việt, câu hỏi gợi ý thông minh
-                      và phân tích so sánh quan điểm lịch sử
+                      và phân tích sâu sắc về tư tưởng Hồ Chí Minh
                     </p>
                   </div>
                 </div>
@@ -548,8 +548,8 @@ const HomePage = () => {
                     className="w-10 h-10 rounded-full border-2 border-white"
                   />
                   <div>
-                    <h4 className="font-semibold">AI Lịch sử Việt Nam</h4>
-                    <p className="text-xs opacity-90">Trợ lý AI chuyên về lịch sử 1954-1964</p>
+                    <h4 className="font-semibold">AI Tư tưởng Hồ Chí Minh</h4>
+                    <p className="text-xs opacity-90">Trợ lý AI chuyên về tư tưởng Hồ Chí Minh</p>
                   </div>
                 </div>
 
@@ -557,8 +557,8 @@ const HomePage = () => {
                                     <div className="flex justify-start">
                     <div className="bg-gray-100 p-3 rounded-2xl rounded-bl-none max-w-xs">
                       <p className="text-sm text-gray-800">
-                        Xin chào! Tôi là AI Lịch sử Việt Nam, được huấn luyện chuyên sâu về
-                        giai đoạn 1954-1964. Bạn muốn tìm hiểu về vấn đề gì?
+                        Xin chào! Tôi là AI Tư tưởng Hồ Chí Minh, được huấn luyện chuyên sâu về
+                        tư tưởng độc lập dân tộc và chủ nghĩa xã hội. Bạn muốn tìm hiểu về vấn đề gì?
                       </p>
                     </div>
                   </div>
@@ -566,7 +566,7 @@ const HomePage = () => {
                   <div className="flex justify-end">
                     <div className="bg-blue-500 text-white p-3 rounded-2xl rounded-br-none max-w-xs">
                       <p className="text-sm">
-                        Dạ, tại sao Mỹ lại can thiệp vào Việt Nam thời kỳ này ạ?
+                        Dạ, tư tưởng độc lập dân tộc của Bác Hồ được hình thành như thế nào ạ?
                       </p>
                     </div>
                   </div>
@@ -574,8 +574,8 @@ const HomePage = () => {
                                     <div className="flex justify-start">
                     <div className="bg-gray-100 p-3 rounded-2xl rounded-bl-none max-w-xs">
                       <p className="text-sm text-gray-800">
-                        Mỹ can thiệp từ 1954 để thay thế Pháp, với mục tiêu ngăn chặn
-                        "chủ nghĩa cộng sản" trong bối cảnh Chiến tranh Lạnh...
+                        Tư tưởng độc lập dân tộc của Bác Hồ hình thành từ khát vọng giải phóng
+                        dân tộc khỏi ách thống trị thực dân, phong kiến...
                       </p>
                     </div>
                   </div>
@@ -584,7 +584,7 @@ const HomePage = () => {
                 <div className="p-4 border-t border-gray-100">
                   <div className="flex items-center space-x-2">
                     <div className="flex-1 bg-gray-100 rounded-xl p-3">
-                      <p className="text-sm text-gray-500">Đặt câu hỏi về lịch sử...</p>
+                      <p className="text-sm text-gray-500">Đặt câu hỏi về tư tưởng Hồ Chí Minh...</p>
                     </div>
                     <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center">
                       <ArrowRight className="w-5 h-5 text-white" />
@@ -650,34 +650,34 @@ const HomePage = () => {
 
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 mb-8">
               <blockquote className="text-xl md:text-2xl text-gray-800 font-medium italic leading-relaxed">
-                "Có quan điểm cho rằng giai đoạn 1954 - 1964 ở Việt Nam là giai đoạn nội chiến.
-                Các bạn hãy phân tích các dữ kiện lịch sử và đưa ra nhận định của mình về quan điểm trên."
+                "Tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Hồ Chí Minh là sự kết hợp hài hòa
+                giữa chủ nghĩa yêu nước và chủ nghĩa xã hội khoa học trong điều kiện cụ thể của Việt Nam."
               </blockquote>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">1954-1964</div>
-                <div className="text-gray-600">Khung thời gian</div>
+                <div className="text-3xl font-bold text-blue-600">Độc lập</div>
+                <div className="text-gray-600">Dân tộc</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">2 quan điểm</div>
-                <div className="text-gray-600">Cần phân tích</div>
+                <div className="text-3xl font-bold text-purple-600">Chủ nghĩa</div>
+                <div className="text-gray-600">Xã hội</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600">Khách quan</div>
-                <div className="text-gray-600">Phương pháp nghiên cứu</div>
+                <div className="text-3xl font-bold text-green-600">Kết hợp</div>
+                <div className="text-gray-600">Hài hòa</div>
               </div>
             </div>
 
             <div className="text-lg text-gray-700 leading-relaxed space-y-4">
               <p>
-                <strong>Tầm quan trọng của vấn đề:</strong>
+                <strong>Tầm quan trọng của tư tưởng:</strong>
               </p>
               <ul className="text-left space-y-2 max-w-2xl mx-auto pl-32">
-                <li>• Ảnh hưởng đến cách nhìn về lịch sử dân tộc</li>
-                <li>• Liên quan đến giáo dục truyền thống yêu nước</li>
-                <li>• Cần thiết cho việc nghiên cứu lịch sử khách quan</li>
+                <li>• Định hướng con đường cách mạng Việt Nam</li>
+                <li>• Kết hợp yêu nước với chủ nghĩa quốc tế</li>
+                <li>• Nền tảng xây dựng chủ nghĩa xã hội ở Việt Nam</li>
               </ul>
             </div>
 
