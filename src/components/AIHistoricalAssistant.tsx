@@ -37,80 +37,84 @@ const AIHistoricalAssistant = () => {
 
   const aiPersona: Persona = {
     id: 'ai-assistant',
-    name: 'AI Tư tưởng Hồ Chí Minh',
-    title: 'Trợ lý AI chuyên về tư tưởng Hồ Chí Minh',
+    name: 'AI Lịch sử Việt Nam 1954-1964',
+    title: 'Trợ lý AI chuyên về lịch sử Việt Nam 1954-1964',
     avatar: '/images/img2.svg',
-    description: 'AI được huấn luyện chuyên sâu về tư tưởng Hồ Chí Minh',
+    description: 'AI được huấn luyện chuyên sâu về giai đoạn lịch sử Việt Nam 1954-1964',
     color: 'from-blue-500 to-purple-600',
     personality: 'intelligent'
   }
 
   const suggestedQuestions = [
-    "Tư tưởng độc lập dân tộc của Hồ Chí Minh có đặc điểm gì?",
-    "Chủ nghĩa xã hội trong tư tưởng Hồ Chí Minh như thế nào?",
-    "Hai tư tưởng này kết hợp với nhau ra sao?",
-    "Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh?",
-    "Tuyên ngôn độc lập 1945 thể hiện tư tưởng gì?",
-    "Di chúc Hồ Chí Minh có nội dung chính nào?",
-    "Tư tưởng Hồ Chí Minh ảnh hưởng đến cách mạng Việt Nam?",
-    "Giá trị thời đại của tư tưởng Hồ Chí Minh?"
+    "Hiệp định Geneva 1954 có ý nghĩa gì với lịch sử Việt Nam?",
+    "Tại sao Ngô Đình Diệm từ chối tổ chức tổng tuyển cử 1956?",
+    "Chiến dịch Tố Cộng (1955-1959) diễn ra như thế nào?",
+    "Mặt trận Dân tộc Giải phóng miền Nam được thành lập khi nào?",
+    "Mỹ bắt đầu can thiệp vào Việt Nam từ khi nào?",
+    "Chính quyền Ngô Đình Diệm kết thúc ra sao?",
+    "Tình hình miền Bắc giai đoạn 1954-1964 như thế nào?",
+    "Ý nghĩa lịch sử của giai đoạn 1954-1964?"
   ]
 
   const initialMessage = useMemo(() =>
-    "Xin chào! Tôi là AI Tư tưởng Hồ Chí Minh, được huấn luyện chuyên sâu về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh. Tôi có thể giúp bạn tìm hiểu về sự hình thành, phát triển và ý nghĩa của hai tư tưởng cốt lõi này. Bạn muốn tìm hiểu về vấn đề gì?"
+    "Xin chào! Tôi là AI Lịch sử Việt Nam 1954-1964, được huấn luyện chuyên sâu về giai đoạn quan trọng này trong lịch sử dân tộc. Tôi có thể giúp bạn tìm hiểu về Hiệp định Geneva, chính quyền Ngô Đình Diệm, Chiến dịch Tố Cộng, sự can thiệp của Mỹ và nhiều sự kiện lịch sử khác. Bạn muốn tìm hiểu về vấn đề gì?"
   , [])
 
   const getOfflineResponse = (message: string): string | null => {
     const lowerMessage = message.toLowerCase()
 
     const responses: { [key: string]: string } = {
-      "tư tưởng độc lập dân tộc": `Tư tưởng độc lập dân tộc của Hồ Chí Minh có những đặc điểm chính:
+      "hiệp định geneva": `Hiệp định Geneva 1954:
 
-🇻🇳 **Khát vọng giải phóng dân tộc**: Mong muốn mạnh mẽ giải phóng Việt Nam khỏi ách thống trị của thực dân, phong kiến.
+📅 **Thời gian**: Ký ngày 21/7/1954 tại Geneva, Thụy Sĩ
 
-🏛️ **Xây dựng nhà nước độc lập**: Thiết lập một nhà nước Việt Nam hoàn toàn độc lập, tự chủ về mọi mặt.
+🏁 **Ý nghĩa**: Kết thúc chiến tranh Đông Dương lần thứ nhất
 
-🤝 **Đại đoàn kết toàn dân tộc**: Tập hợp mọi tầng lớp nhân dân, không phân biệt giai cấp, tôn giáo, vùng miền.
+🗺️ **Chia cắt**: Tạm chia Việt Nam tại vĩ tuyến 17
 
-📜 **Thể hiện rõ trong Tuyên ngôn độc lập 2/9/1945**: "Tất cả mọi người đều sinh ra có quyền bình đẳng..."`,
+🗳️ **Tổng tuyển cử**: Quy định tổ chức tổng tuyển cử thống nhất trong 2 năm (1956)
 
-      "chủ nghĩa xã hội": `Tư tưởng chủ nghĩa xã hội của Hồ Chí Minh bao gồm:
+🇫🇷 **Pháp rút quân**: Pháp chính thức rút quân khỏi Việt Nam`,
 
-⚖️ **Xóa bỏ chế độ bóc lột**: Loại bỏ mọi hình thức áp bức, bóc lột con người bởi con người.
+      "ngô đình diệm": `Ngô Đình Diệm và chính quyền Sài Gòn (1954-1963):
 
-👥 **Nhân dân làm chủ**: Quyền lực thuộc về nhân dân, do nhân dân, vì nhân dân.
+👑 **Lên nắm quyền**: Năm 1954 với sự ủng hộ của Mỹ
 
-🌱 **Phát triển toàn diện con người**: Xây dựng con người mới, xã hội mới với đầy đủ quyền tự do, dân chủ.
+❌ **Từ chối tổng tuyển cử**: Không tổ chức tổng tuyển cử năm 1956
 
-🏭 **Công bằng xã hội**: Phân phối công bằng của cải, không có sự chênh lệch quá lớn giữa các tầng lớp.`,
+🔨 **Đàn áp**: Thực hiện "Chiến dịch Tố Cộng" và đàn áp tôn giáo
 
-      "kết hợp": `Sự kết hợp giữa hai tư tưởng:
+💀 **Kết thúc**: Bị đảo chính và giết chết ngày 2/11/1963`,
 
-🔗 **Độc lập dân tộc là tiền đề**: Không có độc lập thì không thể xây dựng chủ nghĩa xã hội.
+      "chiến dịch tố cộng": `Chiến dịch Tố Cộng (1955-1959):
 
-🎯 **Chủ nghĩa xã hội là định hướng**: Mục tiêu cuối cùng là xây dựng xã hội xã hội chủ nghĩa.
+⚔️ **Bản chất**: Chiến dịch đàn áp của chính quyền Diệm
 
-⚖️ **Bổ sung và thúc đẩy lẫn nhau**: Hai tư tưởng không tách rời mà hỗ trợ, củng cố lẫn nhau.
+⚖️ **Luật 10/59**: Cho phép tử hình không cần xét xử
 
-🇻🇳 **Phù hợp điều kiện Việt Nam**: Vận dụng sáng tạo phù hợp với hoàn cảnh cụ thể của đất nước.`,
+📊 **Số liệu**: Hơn 100,000 người bị bắt, 25,000 người bị giết
 
-      "ý nghĩa": `Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh:
+🎯 **Mục tiêu**: Tiêu diệt cán bộ cách mạng và người yêu nước`,
 
-🏛️ **Đối với Việt Nam**: Định hướng con đường cách mạng, nền tảng cho sự nghiệp đổi mới, kim chỉ nam cho các thế hệ.
+      "mặt trận giải phóng": `Mặt trận Dân tộc Giải phóng miền Nam:
 
-🌍 **Đối với thế giới**: Mô hình kết hợp độc lập dân tộc với chủ nghĩa xã hội, kinh nghiệm cho các dân tộc bị áp bức.
+📅 **Thành lập**: Ngày 20/12/1960
 
-📚 **Đóng góp tư tưởng**: Làm phong phú thêm kho tàng tư tưởng nhân loại về giải phóng dân tộc và xã hội.`,
+⚡ **Nguyên nhân**: Phản ứng trước sự đàn áp của chế độ Mỹ-Diệm
 
-      "tuyên ngôn độc lập": `Tuyên ngôn độc lập 2/9/1945 thể hiện tư tưởng:
+🎯 **Mục tiêu**: Độc lập, dân chủ, hòa bình, trung lập
 
-📜 **Tư tưởng dân chủ**: "Tất cả mọi người đều sinh ra có quyền bình đẳng..."
+👥 **Ủng hộ**: Được nhân dân miền Nam ủng hộ rộng rãi`,
 
-🇻🇳 **Tư tưởng độc lập**: Khẳng định quyền độc lập của dân tộc Việt Nam.
+      "can thiệp mỹ": `Sự can thiệp của Mỹ:
 
-🤝 **Tư tưởng nhân văn**: Tôn trọng quyền con người, quyền dân tộc tự quyết.
+🇺🇸 **Bắt đầu**: Can thiệp từ 1954 thay thế Pháp
 
-⚖️ **Tư tưởng công lý**: Lên án tội ác của thực dân Pháp, đòi công lý cho dân tộc.`
+📈 **Tăng cường**: Từ thời Tổng thống Kennedy (1961)
+
+👨‍💼 **Số quân**: Tăng từ 3,200 (1961) lên 23,300 (1964)
+
+🎯 **Mục tiêu**: Ngăn chặn "chủ nghĩa cộng sản" lan rộng`
     }
 
     for (const [keyword, response] of Object.entries(responses)) {
@@ -121,7 +125,7 @@ const AIHistoricalAssistant = () => {
 
     // Check for common greetings
     if (lowerMessage.includes('xin chào') || lowerMessage.includes('hello') || lowerMessage.includes('chào')) {
-      return "Xin chào! Tôi có thể giúp bạn tìm hiểu về tư tưởng Hồ Chí Minh. Bạn muốn hỏi về: tư tưởng độc lập dân tộc, chủ nghĩa xã hội, sự kết hợp hai tư tưởng, hay ý nghĩa lịch sử?"
+      return "Xin chào! Tôi có thể giúp bạn tìm hiểu về lịch sử Việt Nam 1954-1964. Bạn muốn hỏi về: Hiệp định Geneva, Ngô Đình Diệm, Chiến dịch Tố Cộng, Mặt trận Giải phóng, hay sự can thiệp của Mỹ?"
     }
 
     return null
@@ -139,60 +143,106 @@ const AIHistoricalAssistant = () => {
 
     try {
       // Check if API key is available
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY
+      const apiKey = import.meta.env.VITE_OPENAI_API_KEY
       if (!apiKey || apiKey.trim() === '') {
         setIsTyping(false)
-        return "Để sử dụng AI Assistant, bạn cần:\n1. Tạo API key tại https://aistudio.google.com/app/apikey\n2. Tạo file .env trong thư mục gốc\n3. Thêm dòng: VITE_GEMINI_API_KEY=your_api_key_here\n4. Khởi động lại ứng dụng (Ctrl+C rồi npm run dev)\n\nHiện tại bạn có thể sử dụng các tính năng khác của website."
+        return "Để sử dụng AI Assistant, bạn cần:\n1. Tạo API key tại https://platform.openai.com/api-keys\n2. Tạo file .env trong thư mục gốc\n3. Thêm dòng: VITE_OPENAI_API_KEY=your_api_key_here\n4. Khởi động lại ứng dụng (Ctrl+C rồi npm run dev)\n\nHiện tại bạn có thể sử dụng các tính năng khác của website."
       }
 
-      console.log('API key from env:', apiKey ? `${apiKey.substring(0, 10)}...` : 'NOT FOUND')
-      console.log('All env vars:', import.meta.env)
 
-      // Import Google Generative AI
-      const { GoogleGenerativeAI } = await import('@google/generative-ai')
 
-      const genAI = new GoogleGenerativeAI(apiKey)
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" })
+      // Import OpenAI
+      const { OpenAI } = await import('openai')
+
+      const openai = new OpenAI({
+        apiKey: apiKey,
+        dangerouslyAllowBrowser: true
+      })
 
       // Get conversation history from localStorage
       const conversationHistory = JSON.parse(localStorage.getItem('ai-chat-history') || '[]')
 
-      // System prompt for Ho Chi Minh's Thought
-      const systemPrompt = `Bạn là một AI chuyên gia về tư tưởng Hồ Chí Minh. Bạn được huấn luyện chuyên sâu để cung cấp thông tin chính xác, khách quan về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh.
+      // System prompt for Vietnam History 1954-1964
+      const systemPrompt = `Bạn là một AI chuyên gia về lịch sử Việt Nam giai đoạn 1954-1964. Bạn được huấn luyện chuyên sâu để cung cấp thông tin chính xác, khách quan về thời kỳ quan trọng này trong lịch sử dân tộc.
 
 KIẾN THỨC CỐT LÕI:
-- Tư tưởng độc lập dân tộc: Khát vọng giải phóng dân tộc, xây dựng nhà nước độc lập, tự chủ, đại đoàn kết toàn dân
-- Tư tưởng chủ nghĩa xã hội: Xóa bỏ chế độ bóc lột, xây dựng xã hội công bằng, nhân dân làm chủ
-- Sự kết hợp hài hòa: Độc lập dân tộc là tiền đề, chủ nghĩa xã hội là định hướng, bổ sung thúc đẩy lẫn nhau
-- Mốc quan trọng: Tuyên ngôn độc lập (1945), thành lập Đảng (1930), Di chúc (1969)
-- Ý nghĩa: Định hướng cách mạng Việt Nam, đóng góp vào kho tàng tư tưởng nhân loại
+
+HIỆP ĐỊNH GENEVA 1954:
+- Ký ngày 21/7/1954 tại Geneva, Thụy Sĩ
+- Kết thúc chiến tranh Đông Dương lần thứ nhất
+- Tạm chia Việt Nam tại vĩ tuyến 17
+- Quy định tổ chức tổng tuyển cử thống nhất trong 2 năm (1956)
+- Pháp rút quân khỏi Việt Nam
+
+NGÔ ĐÌNH DIỆM VÀ CHÍNH QUYỀN SÀI GÒN (1954-1963):
+- Lên nắm quyền năm 1954 với sự ủng hộ của Mỹ
+- Từ chối tổ chức tổng tuyển cử năm 1956
+- Thực hiện "Cải cách Ruộng đất" và "Chiến dịch Tố Cộng"
+- Đàn áp tôn giáo và người dân
+- Bị đảo chính và giết chết ngày 2/11/1963
+
+CHIẾN DỊCH TỐ CỘNG (1955-1959):
+- Chiến dịch đàn áp của chính quyền Diệm
+- Luật 10/59: Cho phép tử hình không cần xét xử
+- Hơn 100,000 người bị bắt, 25,000 người bị giết
+- Mục tiêu: Tiêu diệt cán bộ cách mạng và người yêu nước
+
+MẶT TRẬN DÂN TỘC GIẢI PHÓNG MIỀN NAM (1960):
+- Thành lập ngày 20/12/1960
+- Phản ứng trước sự đàn áp của chế độ Mỹ-Diệm
+- Mục tiêu: Độc lập, dân chủ, hòa bình, trung lập
+- Được nhân dân miền Nam ủng hộ
+
+CAN THIỆP CỦA MỸ:
+- Bắt đầu can thiệp từ 1954 thay thế Pháp
+- Tăng cường từ thời Tổng thống Kennedy (1961)
+- Số quân tăng từ 3,200 (1961) lên 23,300 (1964)
+- Mục tiêu: Ngăn chặn "chủ nghĩa cộng sản" lan rộng
 
 NGUYÊN TẮC TRẢ LỜI:
 1. Sử dụng tiếng Việt chuẩn, dễ hiểu
-2. Cung cấp thông tin chính xác với năm tháng, sự kiện cụ thể
-3. Giải thích bối cảnh lịch sử và ý nghĩa tư tưởng
-4. Phân tích sự kết hợp giữa hai tư tưởng cốt lõi
-5. Độ dài 100-400 từ tùy theo độ phức tạp
-6. Giọng điệu thân thiện, khoa học, khách quan
-7. Khuyến khích tư duy phản biện
+2. Cung cấp thông tin chính xác dựa trên sự kiện lịch sử
+3. Trích dẫn năm tháng, số liệu cụ thể khi có thể
+4. Giải thích bối cảnh lịch sử để người đọc hiểu rõ hơn
+5. Cân bằng các quan điểm khác nhau khi phù hợp
+6. Khuyến khích tư duy phản biện và học hỏi
+7. Độ dài phù hợp (100-400 từ tùy theo độ phức tạp của câu hỏi)
+8. Sử dụng giọng điệu thân thiện, dễ tiếp cận
 
 ĐIỀU CẤM:
 - Không bịa đặt sự kiện lịch sử
-- Không trả lời câu hỏi ngoài phạm vi tư tưởng Hồ Chí Minh
+- Không sử dụng ngôn ngữ phản cảm hoặc kích động
+- Không trả lời câu hỏi ngoài phạm vi 1954-1964
 - Không thể hiện quan điểm chính trị hiện tại
 - Không thiên vị quá mức theo một quan điểm duy nhất`
 
-      // Build conversation context
-      let conversationContext = systemPrompt + "\n\nLịch sử cuộc trò chuyện:\n"
-      conversationHistory.forEach((msg: any) => {
-        conversationContext += `${msg.role === 'user' ? 'Người dùng' : 'AI'}: ${msg.content}\n`
-      })
-      conversationContext += `Người dùng: ${message}\nAI:`
+      // Build messages array for OpenAI
+      const messages = [
+        {
+          role: 'system' as const,
+          content: systemPrompt
+        },
+        // Add conversation history
+        ...conversationHistory.map((msg: any) => ({
+          role: msg.role as 'user' | 'assistant',
+          content: msg.content
+        })),
+        // Add current message
+        {
+          role: 'user' as const,
+          content: message
+        }
+      ]
 
-      // Generate response
-      const result = await model.generateContent(conversationContext)
-      const response = await result.response
-      const reply = response.text()
+      // Generate response using OpenAI
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: messages,
+        max_tokens: 1000,
+        temperature: 0.7
+      })
+
+      const reply = completion.choices[0]?.message?.content || "Xin lỗi, tôi không thể tạo phản hồi lúc này."
 
       // Update conversation history
       const updatedHistory = [
@@ -212,30 +262,36 @@ NGUYÊN TẮC TRẢ LỜI:
       return reply
 
     } catch (error) {
-      console.error('Error calling Gemini API:', error)
+      console.error('Error calling OpenAI API:', error)
+      console.error('Error details:', {
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
+        name: error instanceof Error ? error.name : undefined
+      })
       setIsTyping(false)
 
       // Check for specific API errors
       const errorMessage = error instanceof Error ? error.message : String(error)
 
-      if (errorMessage.includes('API key not valid') || errorMessage.includes('API Key not found') || errorMessage.includes('API_KEY_INVALID')) {
-        return "❌ API key không hợp lệ!\n\n🔧 Cách khắc phục:\n1. Kiểm tra API key trong file .env\n2. Đảm bảo API key bắt đầu bằng 'AIza...'\n3. Khởi động lại server (Ctrl+C rồi npm run dev)\n4. Refresh trang web\n\n💡 Hiện tại AI đang hoạt động ở chế độ offline với câu trả lời có sẵn."
+      if (errorMessage.includes('API key not valid') || errorMessage.includes('Incorrect API key') || errorMessage.includes('invalid_api_key')) {
+        return "❌ API key không hợp lệ!\n\n🔧 Cách khắc phục:\n1. Kiểm tra API key trong file .env\n2. Đảm bảo API key bắt đầu bằng 'sk-proj-...'\n3. Khởi động lại server (Ctrl+C rồi npm run dev)\n4. Refresh trang web\n\n💡 Hiện tại AI đang hoạt động ở chế độ offline với câu trả lời có sẵn."
       }
 
-      if (errorMessage.includes('quota')) {
+      if (errorMessage.includes('quota') || errorMessage.includes('rate_limit_exceeded')) {
         return "Xin lỗi, đã vượt quá giới hạn sử dụng API. Vui lòng thử lại sau."
       }
 
-      if (errorMessage.includes('404') || errorMessage.includes('not found')) {
-        return "Xin lỗi, model AI hiện tại không khả dụng. Vui lòng kiểm tra cấu hình hoặc thử lại sau."
+      if (errorMessage.includes('insufficient_quota') || errorMessage.includes('billing')) {
+        return "❌ Lỗi thanh toán!\n\n🔧 Nguyên nhân có thể:\n1. Tài khoản OpenAI chưa có credit\n2. Đã vượt quá giới hạn sử dụng\n3. Cần nạp thêm credit vào tài khoản\n\n💡 Đang sử dụng chế độ offline với câu trả lời có sẵn."
       }
 
       // Fallback response with helpful content
       const fallbackResponses = {
-        "tư tưởng độc lập": "Tư tưởng độc lập dân tộc của Hồ Chí Minh bao gồm: khát vọng giải phóng dân tộc khỏi ách thống trị, xây dựng nhà nước độc lập tự chủ, và đại đoàn kết toàn dân tộc. Đây là nền tảng cho cuộc cách mạng Việt Nam.",
-        "chủ nghĩa xã hội": "Tư tưởng chủ nghĩa xã hội của Hồ Chí Minh nhấn mạnh: xóa bỏ chế độ bóc lột, xây dựng xã hội công bằng, nhân dân làm chủ đất nước, và phát triển toàn diện con người.",
-        "kết hợp": "Hai tư tưởng này kết hợp hài hòa: độc lập dân tộc là tiền đề, chủ nghĩa xã hội là định hướng. Chúng bổ sung và thúc đẩy lẫn nhau, phù hợp với điều kiện cụ thể của Việt Nam.",
-        "ý nghĩa": "Tư tưởng Hồ Chí Minh có ý nghĩa lịch sử to lớn: định hướng con đường cách mạng Việt Nam, nền tảng cho sự nghiệp đổi mới, và đóng góp vào kho tàng tư tưởng nhân loại."
+        "geneva": "Hiệp định Geneva được ký ngày 21/7/1954, kết thúc chiến tranh Đông Dương lần thứ nhất. Hiệp định tạm chia Việt Nam tại vĩ tuyến 17 và quy định tổ chức tổng tuyển cử thống nhất trong 2 năm (1956).",
+        "diệm": "Ngô Đình Diệm lên nắm quyền năm 1954 với sự ủng hộ của Mỹ. Ông từ chối tổ chức tổng tuyển cử năm 1956 và thực hiện Chiến dịch Tố Cộng đàn áp người dân. Diệm bị đảo chính và giết chết ngày 2/11/1963.",
+        "tố cộng": "Chiến dịch Tố Cộng (1955-1959) là chiến dịch đàn áp của chính quyền Diệm. Luật 10/59 cho phép tử hình không cần xét xử. Hơn 100,000 người bị bắt, 25,000 người bị giết.",
+        "mặt trận": "Mặt trận Dân tộc Giải phóng miền Nam được thành lập ngày 20/12/1960, phản ứng trước sự đàn áp của chế độ Mỹ-Diệm. Mục tiêu: độc lập, dân chủ, hòa bình, trung lập.",
+        "mỹ": "Mỹ bắt đầu can thiệp vào Việt Nam từ 1954 thay thế Pháp. Số quân Mỹ tăng từ 3,200 (1961) lên 23,300 (1964) dưới thời Tổng thống Kennedy."
       }
 
       const lowerMessage = message.toLowerCase()
@@ -245,7 +301,7 @@ NGUYÊN TẮC TRẢ LỜI:
         }
       }
 
-      return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về tư tưởng Hồ Chí Minh. Bạn có thể thử hỏi về: tư tưởng độc lập dân tộc, chủ nghĩa xã hội, sự kết hợp hai tư tưởng, hoặc ý nghĩa lịch sử."
+      return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về lịch sử Việt Nam 1954-1964. Bạn có thể thử hỏi về: Hiệp định Geneva, Ngô Đình Diệm, Chiến dịch Tố Cộng, Mặt trận Giải phóng, hoặc sự can thiệp của Mỹ."
     }
   }
 
