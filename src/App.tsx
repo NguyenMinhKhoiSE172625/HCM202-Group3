@@ -10,6 +10,7 @@ import QuizPage from './pages/QuizPage'
 import DocumentsPage from './pages/DocumentsPage'
 import ScrollToTop from './components/ScrollToTop'
 import AIHistoricalAssistant from './components/AIHistoricalAssistant'
+import EnvTest from './components/EnvTest'
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Routes>
         </AnimatePresence>
       </div>
+
+      {/* Environment Test */}
+      <EnvTest />
 
       {/* AI Historical Assistant - Available on all pages */}
       <AIHistoricalAssistant />

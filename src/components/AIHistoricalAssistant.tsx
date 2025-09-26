@@ -60,22 +60,99 @@ const AIHistoricalAssistant = () => {
     "Xin chào! Tôi là AI Tư tưởng Hồ Chí Minh, được huấn luyện chuyên sâu về tư tưởng độc lập dân tộc và chủ nghĩa xã hội của Chủ tịch Hồ Chí Minh. Tôi có thể giúp bạn tìm hiểu về sự hình thành, phát triển và ý nghĩa của hai tư tưởng cốt lõi này. Bạn muốn tìm hiểu về vấn đề gì?"
   , [])
 
+  const getOfflineResponse = (message: string): string | null => {
+    const lowerMessage = message.toLowerCase()
+
+    const responses: { [key: string]: string } = {
+      "tư tưởng độc lập dân tộc": `Tư tưởng độc lập dân tộc của Hồ Chí Minh có những đặc điểm chính:
+
+🇻🇳 **Khát vọng giải phóng dân tộc**: Mong muốn mạnh mẽ giải phóng Việt Nam khỏi ách thống trị của thực dân, phong kiến.
+
+🏛️ **Xây dựng nhà nước độc lập**: Thiết lập một nhà nước Việt Nam hoàn toàn độc lập, tự chủ về mọi mặt.
+
+🤝 **Đại đoàn kết toàn dân tộc**: Tập hợp mọi tầng lớp nhân dân, không phân biệt giai cấp, tôn giáo, vùng miền.
+
+📜 **Thể hiện rõ trong Tuyên ngôn độc lập 2/9/1945**: "Tất cả mọi người đều sinh ra có quyền bình đẳng..."`,
+
+      "chủ nghĩa xã hội": `Tư tưởng chủ nghĩa xã hội của Hồ Chí Minh bao gồm:
+
+⚖️ **Xóa bỏ chế độ bóc lột**: Loại bỏ mọi hình thức áp bức, bóc lột con người bởi con người.
+
+👥 **Nhân dân làm chủ**: Quyền lực thuộc về nhân dân, do nhân dân, vì nhân dân.
+
+🌱 **Phát triển toàn diện con người**: Xây dựng con người mới, xã hội mới với đầy đủ quyền tự do, dân chủ.
+
+🏭 **Công bằng xã hội**: Phân phối công bằng của cải, không có sự chênh lệch quá lớn giữa các tầng lớp.`,
+
+      "kết hợp": `Sự kết hợp giữa hai tư tưởng:
+
+🔗 **Độc lập dân tộc là tiền đề**: Không có độc lập thì không thể xây dựng chủ nghĩa xã hội.
+
+🎯 **Chủ nghĩa xã hội là định hướng**: Mục tiêu cuối cùng là xây dựng xã hội xã hội chủ nghĩa.
+
+⚖️ **Bổ sung và thúc đẩy lẫn nhau**: Hai tư tưởng không tách rời mà hỗ trợ, củng cố lẫn nhau.
+
+🇻🇳 **Phù hợp điều kiện Việt Nam**: Vận dụng sáng tạo phù hợp với hoàn cảnh cụ thể của đất nước.`,
+
+      "ý nghĩa": `Ý nghĩa lịch sử của tư tưởng Hồ Chí Minh:
+
+🏛️ **Đối với Việt Nam**: Định hướng con đường cách mạng, nền tảng cho sự nghiệp đổi mới, kim chỉ nam cho các thế hệ.
+
+🌍 **Đối với thế giới**: Mô hình kết hợp độc lập dân tộc với chủ nghĩa xã hội, kinh nghiệm cho các dân tộc bị áp bức.
+
+📚 **Đóng góp tư tưởng**: Làm phong phú thêm kho tàng tư tưởng nhân loại về giải phóng dân tộc và xã hội.`,
+
+      "tuyên ngôn độc lập": `Tuyên ngôn độc lập 2/9/1945 thể hiện tư tưởng:
+
+📜 **Tư tưởng dân chủ**: "Tất cả mọi người đều sinh ra có quyền bình đẳng..."
+
+🇻🇳 **Tư tưởng độc lập**: Khẳng định quyền độc lập của dân tộc Việt Nam.
+
+🤝 **Tư tưởng nhân văn**: Tôn trọng quyền con người, quyền dân tộc tự quyết.
+
+⚖️ **Tư tưởng công lý**: Lên án tội ác của thực dân Pháp, đòi công lý cho dân tộc.`
+    }
+
+    for (const [keyword, response] of Object.entries(responses)) {
+      if (lowerMessage.includes(keyword) || lowerMessage.includes(keyword.replace(/\s+/g, ''))) {
+        return response
+      }
+    }
+
+    // Check for common greetings
+    if (lowerMessage.includes('xin chào') || lowerMessage.includes('hello') || lowerMessage.includes('chào')) {
+      return "Xin chào! Tôi có thể giúp bạn tìm hiểu về tư tưởng Hồ Chí Minh. Bạn muốn hỏi về: tư tưởng độc lập dân tộc, chủ nghĩa xã hội, sự kết hợp hai tư tưởng, hay ý nghĩa lịch sử?"
+    }
+
+    return null
+  }
+
           const generateAIResponse = async (message: string): Promise<string> => {
     setIsTyping(true)
+
+    // First try offline responses for better user experience
+    const offlineResponse = getOfflineResponse(message)
+    if (offlineResponse) {
+      setIsTyping(false)
+      return offlineResponse
+    }
 
     try {
       // Check if API key is available
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY
-      if (!apiKey) {
+      if (!apiKey || apiKey.trim() === '') {
         setIsTyping(false)
-        return "Xin lỗi, API key chưa được cấu hình. Vui lòng liên hệ quản trị viên để kích hoạt tính năng AI."
+        return "Để sử dụng AI Assistant, bạn cần:\n1. Tạo API key tại https://aistudio.google.com/app/apikey\n2. Tạo file .env trong thư mục gốc\n3. Thêm dòng: VITE_GEMINI_API_KEY=your_api_key_here\n4. Khởi động lại ứng dụng (Ctrl+C rồi npm run dev)\n\nHiện tại bạn có thể sử dụng các tính năng khác của website."
       }
+
+      console.log('API key from env:', apiKey ? `${apiKey.substring(0, 10)}...` : 'NOT FOUND')
+      console.log('All env vars:', import.meta.env)
 
       // Import Google Generative AI
       const { GoogleGenerativeAI } = await import('@google/generative-ai')
 
       const genAI = new GoogleGenerativeAI(apiKey)
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" })
 
       // Get conversation history from localStorage
       const conversationHistory = JSON.parse(localStorage.getItem('ai-chat-history') || '[]')
@@ -141,16 +218,34 @@ NGUYÊN TẮC TRẢ LỜI:
       // Check for specific API errors
       const errorMessage = error instanceof Error ? error.message : String(error)
 
-      if (errorMessage.includes('API key not valid')) {
-        return "Xin lỗi, API key không hợp lệ. Vui lòng kiểm tra cấu hình API key trong environment variables."
+      if (errorMessage.includes('API key not valid') || errorMessage.includes('API Key not found') || errorMessage.includes('API_KEY_INVALID')) {
+        return "❌ API key không hợp lệ!\n\n🔧 Cách khắc phục:\n1. Kiểm tra API key trong file .env\n2. Đảm bảo API key bắt đầu bằng 'AIza...'\n3. Khởi động lại server (Ctrl+C rồi npm run dev)\n4. Refresh trang web\n\n💡 Hiện tại AI đang hoạt động ở chế độ offline với câu trả lời có sẵn."
       }
 
       if (errorMessage.includes('quota')) {
         return "Xin lỗi, đã vượt quá giới hạn sử dụng API. Vui lòng thử lại sau."
       }
 
-      // Fallback response
-      return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về tư tưởng Hồ Chí Minh. Bạn có thể thử hỏi lại sau ít phút được không?"
+      if (errorMessage.includes('404') || errorMessage.includes('not found')) {
+        return "Xin lỗi, model AI hiện tại không khả dụng. Vui lòng kiểm tra cấu hình hoặc thử lại sau."
+      }
+
+      // Fallback response with helpful content
+      const fallbackResponses = {
+        "tư tưởng độc lập": "Tư tưởng độc lập dân tộc của Hồ Chí Minh bao gồm: khát vọng giải phóng dân tộc khỏi ách thống trị, xây dựng nhà nước độc lập tự chủ, và đại đoàn kết toàn dân tộc. Đây là nền tảng cho cuộc cách mạng Việt Nam.",
+        "chủ nghĩa xã hội": "Tư tưởng chủ nghĩa xã hội của Hồ Chí Minh nhấn mạnh: xóa bỏ chế độ bóc lột, xây dựng xã hội công bằng, nhân dân làm chủ đất nước, và phát triển toàn diện con người.",
+        "kết hợp": "Hai tư tưởng này kết hợp hài hòa: độc lập dân tộc là tiền đề, chủ nghĩa xã hội là định hướng. Chúng bổ sung và thúc đẩy lẫn nhau, phù hợp với điều kiện cụ thể của Việt Nam.",
+        "ý nghĩa": "Tư tưởng Hồ Chí Minh có ý nghĩa lịch sử to lớn: định hướng con đường cách mạng Việt Nam, nền tảng cho sự nghiệp đổi mới, và đóng góp vào kho tàng tư tưởng nhân loại."
+      }
+
+      const lowerMessage = message.toLowerCase()
+      for (const [key, response] of Object.entries(fallbackResponses)) {
+        if (lowerMessage.includes(key)) {
+          return response + "\n\n(Lưu ý: AI đang gặp sự cố kỹ thuật, đây là thông tin cơ bản. Vui lòng thử lại sau.)"
+        }
+      }
+
+      return "Xin lỗi, tôi đang gặp khó khăn kỹ thuật. Đây là một chủ đề thú vị về tư tưởng Hồ Chí Minh. Bạn có thể thử hỏi về: tư tưởng độc lập dân tộc, chủ nghĩa xã hội, sự kết hợp hai tư tưởng, hoặc ý nghĩa lịch sử."
     }
   }
 
