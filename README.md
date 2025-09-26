@@ -72,6 +72,28 @@ cd vietnam-history-1954-1964
 npm install
 ```
 
+### Cấu hình AI Assistant (Tùy chọn)
+Để sử dụng tính năng AI Assistant, bạn cần:
+
+1. **Tạo OpenAI API Key**:
+   - Truy cập: https://platform.openai.com/api-keys
+   - Đăng ký/đăng nhập tài khoản OpenAI
+   - Tạo API key mới
+
+2. **Cấu hình môi trường**:
+   ```bash
+   # Copy file cấu hình mẫu
+   cp .env.example .env
+
+   # Mở file .env và thay thế API key
+   # VITE_OPENAI_API_KEY=your_actual_api_key_here
+   ```
+
+⚠️ **Lưu ý bảo mật**:
+- Không bao giờ commit file `.env` lên Git
+- Không chia sẻ API key với người khác
+- API key đã được thêm vào `.gitignore`
+
 ### Chạy development server
 ```bash
 npm run dev

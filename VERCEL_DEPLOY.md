@@ -11,8 +11,13 @@ AI đã được chuyển từ Google Gemini sang OpenAI để hoạt động �
 3. Thêm biến môi trường:
    ```
    Name: VITE_OPENAI_API_KEY
-   Value: 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
+   Value: [YOUR_NEW_OPENAI_API_KEY_HERE]
    ```
+   ⚠️ **Lưu ý bảo mật**:
+   - Sử dụng API key mới từ OpenAI
+   - Không chia sẻ API key trong code hoặc file public
+   - API key phải bắt đầu bằng `sk-proj-...`
+
 4. Chọn **All Environments** (Production, Preview, Development)
 5. Click **Save**
 
