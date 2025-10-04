@@ -287,7 +287,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="/images/img1.jpg"
+                  src="public\images\img-hcm-tre.jpg"
                   alt="Hồ Chí Minh thời trẻ"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -316,7 +316,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="/images/img2.svg"
+                  src="public\images\dcs-ra-doi.jpg"
                   alt="Thành lập Đảng Cộng sản Việt Nam"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -345,7 +345,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="/images/img3.jpg"
+                  src="/images/29.jpg"
                   alt="Tuyên ngôn độc lập 2/9/1945"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -374,7 +374,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="/images/img4.jpg"
+                  src="public\images\bac-ho-voi-nhan-dan.jpg"
                   alt="Hồ Chí Minh với nhân dân"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -432,7 +432,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="/images/img6.jpg"
+                  src="public\images\di-san-ho-chi-minh.jpg"
                   alt="Di sản tư tưởng Hồ Chí Minh"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
