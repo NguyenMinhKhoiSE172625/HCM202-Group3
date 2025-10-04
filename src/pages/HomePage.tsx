@@ -287,7 +287,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="public\images\img-hcm-tre.jpg"
+                  src="/images/img-hcm-tre.jpg"
                   alt="Hồ Chí Minh thời trẻ"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -316,7 +316,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="public\images\dcs-ra-doi.jpg"
+                  src="/images/dcs-ra-doi.jpg"
                   alt="Thành lập Đảng Cộng sản Việt Nam"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -374,7 +374,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="public\images\bac-ho-voi-nhan-dan.jpg"
+                  src="/images/bac-ho-voi-nhan-dan.jpg"
                   alt="Hồ Chí Minh với nhân dân"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
@@ -432,7 +432,7 @@ const HomePage = () => {
             >
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="public\images\di-san-ho-chi-minh.jpg"
+                  src="/images/di-san-ho-chi-minh.jpg"
                   alt="Di sản tư tưởng Hồ Chí Minh"
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
